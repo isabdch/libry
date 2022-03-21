@@ -1,10 +1,16 @@
 import { globalCss } from "../stitches.config";
 
 export const globalStyles = globalCss({
-  "@font-face": {
-    src: "url('')",
-    fontFamily: "myFont",
-  },
+  "@font-face": [
+    {
+      src: "url('./font/Nunito-Regular.ttf')",
+      fontFamily: "myFont",
+    },
+    {
+      src: "url('./font/Comfortaa-VariableFont_wght.ttf')",
+      fontFamily: "logoFont",
+    },
+  ],
 
   "*": {
     padding: 0,
@@ -24,7 +30,7 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    background: "$white500 no-repeat fixed center",
+    background: "$lilac50 no-repeat fixed center",
     backgroundSize: "cover",
     backgroundBlendMode: "overlay",
   },

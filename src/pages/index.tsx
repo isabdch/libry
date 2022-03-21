@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>e-Library</title>
+        <title>Books</title>
       </Head>
     </>
   );
