@@ -6,8 +6,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   globalStyles();
   return (
     <AuthProvider session={session}>
-      <Component {...pageProps} />
       <Header />
+      <Component {...pageProps} />
     </AuthProvider>
   );
 }

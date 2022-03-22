@@ -21,6 +21,12 @@ export const SignInButtonComponent = styled("button", {
   ".signOutButton": {
     border: "2px solid $purple200",
   },
+
+  "@max425px": {
+    ".googleIcon": {
+      display: "none",
+    },
+  },
 });
 
 export const SignOutButtonComponent = styled("button", {
