@@ -18,8 +18,8 @@ export const SignInButtonComponent = styled("button", {
     backgroundColor: "$lilac80",
   },
 
-  ".signOutButton": {
-    border: "2px solid $purple200",
+  "@min1440px": {
+    fontSize: "1.3vw",
   },
 
   "@max425px": {
@@ -50,5 +50,9 @@ export const SignOutButtonComponent = styled("button", {
 
   ".profileImg": {
     borderRadius: "50%",
-  }
+  },
+
+  "@min1440px": {
+    fontSize: "1.3vw",
+  },
 });

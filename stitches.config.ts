@@ -32,12 +32,14 @@ export const {
   },
   media: {
     min2560px: "(min-width: 2560px)",
-    max1080px: "(max-width: 1080px)",
+    min1440px: "(min-width: 1440px)",
+    max1024px: "(max-width: 1024px)",
     max768px: "(max-width: 768px)",
     max720px: "(max-width: 720px)",
     max650px: "(max-width: 650px)",
     max560px: "(max-width: 560px)",
     max425px: "(max-width: 425px)",
+    max375px: "(max-width: 375px)",
   },
   utils: {
     flexCenterJC: (value: string) => ({

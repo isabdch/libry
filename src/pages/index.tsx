@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Main } from "../components/Main/Main";
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <Head>
         <title>Libry</title>
       </Head>
+      <Main />
     </>
   );
 }

@@ -32,7 +32,11 @@ export const globalStyles = globalCss({
   body: {
     background: "$lilac50 no-repeat fixed center",
     backgroundSize: "cover",
-    backgroundBlendMode: "overlay",
+
+    "@max1024px": {
+      background: "$lilac50 url('./images/confetti-doodles.svg') no-repeat fixed center",
+      backgroundSize: "cover",
+    },
   },
 
   button: {
@@ -49,3 +53,5 @@ export const globalStyles = globalCss({
     listStyleType: "none",
   },
 });
+
+

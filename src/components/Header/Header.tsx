@@ -1,13 +1,23 @@
+import { useEffect, useRef, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import "balloon-css";
 import { SignButtons } from "./SignButtons/SignButtons";
 import { HeaderComponent } from "./HeaderStyles";
 import { BsList } from "react-icons/bs";
-import { useState } from "react";
 
 export function Header() {
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      menuBtnRef.current?.removeAttribute("data-balloon-visible");
+      menuBtnRef.current?.removeAttribute("aria-label");
+      menuBtnRef.current?.removeAttribute("data-balloon-pos");
+    }, 4000);
+  }, []);
 
   function handleIsMenuOpen() {
     if (menu == true) {
@@ -15,6 +25,10 @@ export function Header() {
     } else {
       setMenu(true);
     }
+
+    menuBtnRef.current?.removeAttribute("data-balloon-visible");
+    menuBtnRef.current?.removeAttribute("aria-label");
+    menuBtnRef.current?.removeAttribute("data-balloon-pos");
   }
 
   return (
@@ -33,12 +47,21 @@ export function Header() {
             </span>
           </Link>
           <Link href="/mybookshelf">
-            <a className="myShelf">My bookshelf</a>
+            <a onClick={() => setMenu(false)} className="myShelf">
+              My bookshelf
+            </a>
           </Link>
         </div>
         <SignButtons />
       </div>
-      <button onClick={handleIsMenuOpen} className="menuBtn">
+      <button
+        ref={menuBtnRef}
+        data-balloon-visible
+        aria-label="Click here to access your bookshelf"
+        data-balloon-pos="right"
+        onClick={handleIsMenuOpen}
+        className="menuBtn"
+      >
         <BsList />
       </button>
     </HeaderComponent>

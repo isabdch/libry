@@ -5,7 +5,9 @@ export const HeaderComponent = styled("header", {
   height: "100px",
   flexCenterAI: "",
   backgroundColor: "$lilac65",
-  position: "fixed",
+  position: "sticky",
+  top: 0,
+  zIndex: 1,
 
   ".container": {
     flexCenterJC: "space-between",
@@ -25,6 +27,7 @@ export const HeaderComponent = styled("header", {
           fontFamily: "logoFont",
           letterSpacing: "3px",
           color: "$purple500",
+          textShadow: "-3px 1px #9D4EDD",
         },
       },
 
@@ -43,19 +46,29 @@ export const HeaderComponent = styled("header", {
   },
 
   ".menuBtn": {
-    backgroundColor: "transparent",
+    backgroundColor: "$lilac65",
     color: "$purple500",
     display: "none",
     position: "absolute",
     top: 0,
     right: 0,
     padding: "5px",
+    fontSize: "1.2em",
+  },
+
+  "@min1440px": {
+    height: "7vw",
+
+    ".container": {
+      fontSize: "1.3vw",
+    },
   },
 
   "@max768px": {
     width: "30vw",
     height: "100vh",
     alignItems: "center",
+    position: "fixed",
 
     ".container": {
       height: "90%",
@@ -73,6 +86,8 @@ export const HeaderComponent = styled("header", {
 
     ".menuBtn": {
       display: "inherit",
+      borderRadius: "50%",
+      "--balloon-color": "#C77DFF",
     },
 
     ".hideMenuNav": {
@@ -82,6 +97,9 @@ export const HeaderComponent = styled("header", {
     "&.hideMenu": {
       backgroundColor: "transparent",
       width: "20px",
+      height: "20px",
+      margin: "10px",
+      marginTop: "5px",
     },
   },
 
