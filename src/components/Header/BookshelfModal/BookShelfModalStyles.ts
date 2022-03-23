@@ -17,7 +17,7 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
   },
 
   "&:focus": {
-    outline: "2px solid $purple100",
+    outline: "2px solid transparent",
   },
 
   "@max768px": {

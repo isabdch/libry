@@ -35,7 +35,10 @@ export function BookshelfModal() {
       </ModalTrigger>
       <AlertDialog.Portal>
         <ModalOverlay onClick={() => setBookshelfModal(false)} />
-        <ModalContent onEscapeKeyDown={() => setBookshelfModal(false)}>
+        <ModalContent
+          onEscapeKeyDown={() => setBookshelfModal(false)}
+          onCloseAutoFocus={(event) => event.preventDefault()}
+        >
           <ModalTitle>You&apos;re not signed in</ModalTitle>
           <ModalDescription>
             You need to sign in to continue browsing.
