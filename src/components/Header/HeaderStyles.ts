@@ -29,6 +29,12 @@ export const HeaderComponent = styled("header", {
           color: "$purple500",
           textShadow: "-3px 1px #9D4EDD",
         },
+
+        ".img": {
+          position: "relative",
+          width: "35px",
+          height: "35px",
+        },
       },
     },
   },
@@ -49,6 +55,15 @@ export const HeaderComponent = styled("header", {
 
     ".container": {
       fontSize: "1.3vw",
+
+      ".content": {
+        ".logo": {
+          ".img": {
+            width: "2.6vw",
+            height: "2.6vw",
+          },
+        },
+      },
     },
   },
 

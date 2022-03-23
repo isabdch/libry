@@ -37,12 +37,9 @@ export function Header() {
         <div className="content">
           <Link href="/" passHref>
             <span className="logo">
-              <Image
-                src="/images/logo.svg"
-                alt="e-Library"
-                width="40px"
-                height="40px"
-              />
+              <div className="img">
+                <Image src="/images/logo.svg" alt="e-Library" layout="fill" />
+              </div>
               <h1>LIBRY</h1>
             </span>
           </Link>

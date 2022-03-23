@@ -67,19 +67,13 @@ export const MainComponent = styled("main", {
     top: "50%",
     transform: "translateY(-50%)",
     right: "3%",
+    width: "35vw",
+    height: "35vw",
   },
 
   "@min1440px": {
     fontSize: "1.45vw",
     padding: "1vw",
-
-    ".img": {
-      position: "absolute",
-      zIndex: "-1",
-      top: "50%",
-      transform: "translateY(-50%)",
-      right: "3%",
-    },
   },
 
   "@max1024px": {

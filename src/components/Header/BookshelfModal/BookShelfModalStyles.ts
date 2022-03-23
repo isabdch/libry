@@ -6,7 +6,7 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
   borderLeft: "1px solid $lilac100",
 
   ".myShelf": {
-    fontSize: "1.3em",
+    fontSize: "1.29em",
     lineHeight: "60px",
     padding: "0px 20px",
     transition: ".2s",
@@ -18,6 +18,12 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
 
   "&:focus": {
     outline: "2px solid transparent",
+  },
+
+  "@min1440px": {
+    ".myShelf": {
+      fontSize: "1.4vw",
+    },
   },
 
   "@max768px": {
@@ -54,6 +60,11 @@ export const ModalContent = styled(AlertDialog.Content, {
   "&:focus": {
     outline: "none",
   },
+
+  "@min1440px": {
+    maxWidth: "35vw",
+    fontSize: "1.4vw",
+  },
 });
 
 export const ModalTitle = styled(AlertDialog.Title, {
@@ -77,6 +88,10 @@ export const ModalCancel = styled(AlertDialog.Cancel, {
   "&:hover": {
     color: "$lilac100",
   },
+
+  "@min1440px": {
+    margin: "1.5vw",
+  },
 });
 
 export const ModalAction = styled(AlertDialog.Action, {
@@ -99,6 +114,8 @@ export const ModalAction = styled(AlertDialog.Action, {
 
   "@min1440px": {
     fontSize: "1.3vw",
+    padding: "0.8vw 30px",
+    borderRadius: "2em",
   },
 
   "@max425px": {
