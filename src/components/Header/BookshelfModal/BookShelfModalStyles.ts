@@ -69,6 +69,7 @@ export const ModalContent = styled(AlertDialog.Content, {
 
 export const ModalTitle = styled(AlertDialog.Title, {
   color: "$purple500",
+  textShadow: "-1px 2px #9D4EDD",
 });
 
 export const ModalDescription = styled(AlertDialog.Description, {

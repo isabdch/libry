@@ -1,8 +1,17 @@
 import Image from "next/image";
 import { MainComponent } from "./MainStyles";
 import { BsSearch } from "react-icons/bs";
+import React, { useContext } from "react";
+import { InputValueContext } from "../../pages";
 
-export function Main() {
+type MainProps = {
+  searchBooks: (event: React.MouseEvent) => void;
+  inputValue: string;
+};
+
+export function Main({ searchBooks, inputValue }: MainProps) {
+  const setInputValue = useContext(InputValueContext);
+
   return (
     <>
       <MainComponent>
@@ -14,8 +23,14 @@ export function Main() {
             organize your readings!
           </p>
           <form>
-            <input type="text" placeholder="Search for books..." />
-            <button type="submit">
+            <input
+              type="text"
+              placeholder="Search for books..."
+              className="searchBooksInput"
+              onChange={(event) => setInputValue(event.target.value)}
+              value={inputValue}
+            />
+            <button type="submit" onClick={(event) => searchBooks(event)}>
               <BsSearch />
             </button>
           </form>

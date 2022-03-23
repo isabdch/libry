@@ -3,7 +3,8 @@ import { styled } from "../../../stitches.config";
 export const MainComponent = styled("main", {
   width: "100%",
   height: "75vh",
-  flexCenterJC: "flex-start",
+  flexCenterAI: "flex-start",
+  flexDirection: "column",
   fontSize: "1.2rem",
   position: "relative",
 
@@ -73,7 +74,6 @@ export const MainComponent = styled("main", {
 
   "@min1440px": {
     fontSize: "1.45vw",
-    padding: "1vw",
   },
 
   "@max1024px": {
