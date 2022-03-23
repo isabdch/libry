@@ -30,18 +30,6 @@ export const HeaderComponent = styled("header", {
           textShadow: "-3px 1px #9D4EDD",
         },
       },
-
-      ".myShelf": {
-        fontSize: "1.2em",
-        borderLeft: "1px solid $lilac100",
-        lineHeight: "60px",
-        padding: "0px 20px",
-        transition: ".2s",
-
-        "&:hover": {
-          color: "$purple100",
-        },
-      },
     },
   },
 
@@ -76,11 +64,6 @@ export const HeaderComponent = styled("header", {
 
       ".content": {
         flexDirection: "column",
-
-        ".myShelf": {
-          borderLeft: "0px",
-          borderTop: "1px solid $lilac100",
-        },
       },
     },
 

@@ -34,7 +34,8 @@ export const globalStyles = globalCss({
     backgroundSize: "cover",
 
     "@max1024px": {
-      background: "$lilac50 url('./images/confetti-doodles.svg') no-repeat fixed center",
+      background:
+        "$lilac50 url('./images/confetti-doodles.svg') no-repeat fixed center",
       backgroundSize: "cover",
     },
   },
@@ -42,6 +43,10 @@ export const globalStyles = globalCss({
   button: {
     border: 0,
     cursor: "pointer",
+  },
+
+  input: {
+    border: 0,
   },
 
   a: {
@@ -53,5 +58,3 @@ export const globalStyles = globalCss({
     listStyleType: "none",
   },
 });
-
-

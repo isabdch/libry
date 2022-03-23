@@ -16,7 +16,7 @@ export const MainComponent = styled("main", {
       fontFamily: "logoFont",
       letterSpacing: "1px",
       color: "$lilac100",
-      textShadow: "2px 2px #7B2CBF",
+      textShadow: "-2px 2px #7B2CBF",
     },
 
     p: {

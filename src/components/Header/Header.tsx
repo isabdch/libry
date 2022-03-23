@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import { BookshelfModal } from "./BookshelfModal/BookshelfModal";
 import "balloon-css";
-import { SignButtons } from "./SignButtons/SignButtons";
 import { HeaderComponent } from "./HeaderStyles";
+import { SignButtons } from "./SignButtons/SignButtons";
 import { BsList } from "react-icons/bs";
 
 export function Header() {
@@ -25,7 +25,7 @@ export function Header() {
     } else {
       setMenu(true);
     }
-
+    //
     menuBtnRef.current?.removeAttribute("data-balloon-visible");
     menuBtnRef.current?.removeAttribute("aria-label");
     menuBtnRef.current?.removeAttribute("data-balloon-pos");
@@ -46,11 +46,7 @@ export function Header() {
               <h1>LIBRY</h1>
             </span>
           </Link>
-          <Link href="/mybookshelf">
-            <a onClick={() => setMenu(false)} className="myShelf">
-              My bookshelf
-            </a>
-          </Link>
+          <BookshelfModal />
         </div>
         <SignButtons />
       </div>
