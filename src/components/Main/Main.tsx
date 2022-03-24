@@ -1,16 +1,46 @@
 import Image from "next/image";
 import { MainComponent } from "./MainStyles";
 import { BsSearch } from "react-icons/bs";
-import React, { useContext } from "react";
-import { InputValueContext } from "../../pages";
+import { useEffect, useRef } from "react";
+
+type Images = {
+  thumbnail: string;
+  smallThumbnail: string;
+};
+
+type BookInfo = {
+  authors: string[];
+  categories: string[];
+  description: string;
+  imageLinks: Images;
+  pageCount: number;
+  publishedDate: string;
+  subtitle: string;
+  title: string;
+};
+
+type Books = {
+  id: string;
+  volumeInfo: BookInfo;
+};
 
 type MainProps = {
   searchBooks: (event: React.MouseEvent) => void;
   inputValue: string;
+  setInputValue: (arg0: string) => void;
+  books: Books[];
 };
 
-export function Main({ searchBooks, inputValue }: MainProps) {
-  const setInputValue = useContext(InputValueContext);
+export function Main({
+  searchBooks,
+  inputValue,
+  setInputValue,
+  books,
+}: MainProps) {
+  const scrollSpan = useRef(null);
+  useEffect(() => {
+    scrollSpan.current.scrollIntoView({ behavior: "smooth" });
+  }, [books]);
 
   return (
     <>
@@ -36,8 +66,9 @@ export function Main({ searchBooks, inputValue }: MainProps) {
           </form>
         </section>
         <div className="img">
-          <Image src="/images/image.svg" alt="Books" layout="fill" />
+          <Image src="/images/image.svg" alt="Books" layout="fill" priority />
         </div>
+        <span ref={scrollSpan}></span>
       </MainComponent>
     </>
   );

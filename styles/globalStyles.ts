@@ -32,6 +32,7 @@ export const globalStyles = globalCss({
   body: {
     background: "$lilac50 no-repeat fixed center",
     backgroundSize: "cover",
+    overflowX: "hidden",
 
     "@max1024px": {
       background:
