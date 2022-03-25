@@ -160,6 +160,22 @@ export const BookModalContent = styled(AlertDialog.Content, {
     gap: "3vh",
   },
 
+  "@min1440px": {
+    gap: "2vw",
+    padding: "1vw 3vw",
+    fontSize: "1vw",
+
+    ".info": {
+      gap: "1.5vw",
+
+      ".img": {
+        height: "30vh",
+        width: "12vw",
+        boxShadow: "-0.4vw 0.4vw #5A189A",
+      },
+    },
+  },
+
   "@max1024px": {
     width: "80vw",
   },
@@ -202,6 +218,8 @@ export const BookModalDescription = styled(AlertDialog.Description, {
   overflowY: "auto",
   paddingRight: "5px",
   height: "100%",
+  scrollbarWidth: "thin",
+  scrollbarColor: "#C77DFF #FFFFFF",
 
   "&::-webkit-scrollbar": {
     width: "0.5vw",

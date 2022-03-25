@@ -38,7 +38,7 @@ export const MainComponent = styled("main", {
         color: "$purple500",
 
         "&:focus": {
-          outlineColor: "#C77DFF",
+          outline: "1px solid $lilac100",
         },
 
         "&::placeholder": {
