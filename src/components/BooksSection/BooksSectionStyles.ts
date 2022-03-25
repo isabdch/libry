@@ -1,4 +1,15 @@
-import { styled } from "../../../stitches.config";
+import { keyframes, styled } from "../../../stitches.config";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
+
+const overlayShow = keyframes({
+  "0%": { opacity: 0 },
+  "100%": { opacity: 1 },
+});
+
+const contentShow = keyframes({
+  "0%": { opacity: 0, transform: "translate(-50%, -48%) scale(.96)" },
+  "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
+});
 
 export const BooksSectionComponent = styled("section", {
   width: "100%",
@@ -13,7 +24,7 @@ export const BooksSectionContainer = styled("div", {
   flexWrap: "wrap",
 });
 
-export const BookCard = styled("div", {
+export const BookCard = styled(AlertDialog.Trigger, {
   width: "210px",
   backgroundColor: "$lilac65",
   borderRadius: "0.5em",
@@ -63,5 +74,129 @@ export const BookCard = styled("div", {
 
   "&:active": {
     backgroundColor: "#E8CBFF",
+  },
+});
+
+export const BookModalOverlay = styled(AlertDialog.Overlay, {
+  position: "fixed",
+  inset: 0,
+  backgroundColor: "#00000040",
+  zIndex: 2,
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+  },
+});
+
+export const BookModalContent = styled(AlertDialog.Content, {
+  position: "fixed",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "50vw",
+  maxHeight: "85vh",
+  backgroundColor: "white",
+  borderRadius: "1.5em",
+  zIndex: 2,
+  flexCenterJC: "center",
+  gap: "20px",
+  padding: "20px",
+  color: "$purple500",
+
+  "&:focus": {
+    outline: "none",
+  },
+
+  ".info": {
+    height: "55vh",
+    flexCenterJC: "center",
+    flexDirection: "column",
+    gap: "20px",
+
+    ".img": {
+      height: "220px",
+      width: "170px",
+      borderRadius: "1em",
+      boxShadow: "-5px 5px #5A189A",
+
+      img: {
+        borderRadius: "1em",
+      },
+    },
+
+    ".infoContent": {
+      textAlign: "center",
+
+      "p:first-child": {
+        fontWeight: "bold",
+      },
+    },
+  },
+
+  ".content": {
+    height: "50vh",
+    width: "70%",
+    flexCenterJC: "space-between",
+    flexDirection: "column",
+    gap: "3vh",
+  },
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+  },
+});
+
+export const BookModalTitle = styled(AlertDialog.Title, {
+  textShadow: "-1px 1px #9D4EDD",
+});
+
+export const BookModalDescription = styled(AlertDialog.Description, {
+  overflowY: "auto",
+  paddingRight: "5px",
+  height: "100%",
+
+  "&::-webkit-scrollbar": {
+    width: "0.5vw",
+  },
+
+  "&::-webkit-scrollbar-thumb": {
+    backgroundColor: "$lilac100",
+    borderRadius: "2em",
+  },
+});
+
+export const BookModalCancel = styled(AlertDialog.Cancel, {
+  position: "absolute",
+  top: 0,
+  right: 0,
+  margin: "18px",
+  backgroundColor: "transparent",
+  color: "$purple500",
+  transition: ".2s",
+  fontSize: "1em",
+
+  "&:hover": {
+    color: "$lilac100",
+  },
+
+  "@min1440px": {
+    margin: "1.5vw",
+  },
+});
+
+export const BookModalAction = styled(AlertDialog.Action, {
+  padding: "5px 30px",
+  borderRadius: "2rem",
+  backgroundColor: "$lilac100",
+  color: "$white500",
+  fontSize: "1em",
+  transition: ".2s",
+
+  "&:hover": {
+    backgroundColor: "$lilac80",
+  },
+
+  "&:active": {
+    backgroundColor: "$lilac100",
   },
 });

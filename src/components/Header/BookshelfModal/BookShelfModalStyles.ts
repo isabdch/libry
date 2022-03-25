@@ -1,5 +1,15 @@
-import { styled } from "../../../../stitches.config";
+import { keyframes, styled } from "../../../../stitches.config";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
+
+const overlayShow = keyframes({
+  "0%": { opacity: 0 },
+  "100%": { opacity: 1 },
+});
+
+const contentShow = keyframes({
+  "0%": { opacity: 0, transform: "translate(-50%, -48%) scale(.96)" },
+  "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
+});
 
 export const ModalTrigger = styled(AlertDialog.Trigger, {
   backgroundColor: "transparent",
@@ -37,6 +47,10 @@ export const ModalOverlay = styled(AlertDialog.Overlay, {
   inset: 0,
   backgroundColor: "#00000040",
   zIndex: 2,
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+  },
 });
 
 export const ModalContent = styled(AlertDialog.Content, {
@@ -49,7 +63,7 @@ export const ModalContent = styled(AlertDialog.Content, {
   maxWidth: "450px",
   maxHeight: "85vh",
   backgroundColor: "white",
-  borderRadius: "1.5em",
+  borderRadius: "1em",
   padding: "25px",
   zIndex: 2,
   flexCenterJC: "space-around",
@@ -59,6 +73,10 @@ export const ModalContent = styled(AlertDialog.Content, {
 
   "&:focus": {
     outline: "none",
+  },
+
+  "@media (prefers-reduced-motion: no-preference)": {
+    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
   },
 
   "@min1440px": {

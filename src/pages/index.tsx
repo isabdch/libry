@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { BooksSection } from "../components/BooksSection/BooksSection";
 import { Main } from "../components/Main/Main";
 import { api } from "../services/api";
