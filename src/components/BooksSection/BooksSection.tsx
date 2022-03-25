@@ -55,8 +55,7 @@ export function BooksSection({ books }: BooksSectionProps) {
                             : `${book.volumeInfo.imageLinks.thumbnail}`
                         }
                         alt={book.volumeInfo.title}
-                        height="220px"
-                        width="170px"
+                        layout="fill"
                       />
                     </div>
                     <h1>{book.volumeInfo.title}</h1>

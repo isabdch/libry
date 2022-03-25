@@ -40,6 +40,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
   ".img": {
     height: "220px",
     width: "170px",
+    position: "relative",
 
     img: {
       borderRadius: "0.5em",
@@ -69,11 +70,28 @@ export const BookCard = styled(AlertDialog.Trigger, {
   },
 
   "&:hover": {
-    transform: "scale(1.1)",
+    transform: "scale(1.03)",
   },
 
   "&:active": {
     backgroundColor: "#E8CBFF",
+  },
+
+  "@min1440px": {
+    width: "13vw",
+    padding: "1vw",
+    margin: "1vw 0.5vw",
+    fontSize: "1vw",
+    gap: "1vw",
+
+    ".img": {
+      height: "20vh",
+      width: "11vw",
+
+      img: {
+        borderRadius: "0.5em",
+      },
+    },
   },
 });
 
