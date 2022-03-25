@@ -85,7 +85,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
     gap: "1vw",
 
     ".img": {
-      height: "20vh",
+      height: "30vh",
       width: "11vw",
 
       img: {
