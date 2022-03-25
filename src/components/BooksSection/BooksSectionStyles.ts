@@ -132,6 +132,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
     gap: "20px",
 
     ".img": {
+      position: "relative",
       height: "220px",
       width: "170px",
       borderRadius: "1em",
@@ -159,6 +160,31 @@ export const BookModalContent = styled(AlertDialog.Content, {
     gap: "3vh",
   },
 
+  "@max1024px": {
+    width: "80vw",
+  },
+
+  "@max650px": {
+    width: "90vw",
+    flexDirection: "column",
+    justifyContent: "",
+    maxHeight: "90vh",
+    color: "$purple500",
+    gap: "0px",
+
+    ".info": {
+      ".img": {
+        height: "180px",
+        width: "130px",
+      },
+    },
+
+    ".content": {
+      height: "38vh",
+      width: "90%",
+    },
+  },
+
   "@media (prefers-reduced-motion: no-preference)": {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
   },
@@ -166,6 +192,10 @@ export const BookModalContent = styled(AlertDialog.Content, {
 
 export const BookModalTitle = styled(AlertDialog.Title, {
   textShadow: "-1px 1px #9D4EDD",
+
+  "@max650px": {
+    textAlign: "center",
+  },
 });
 
 export const BookModalDescription = styled(AlertDialog.Description, {
@@ -180,6 +210,10 @@ export const BookModalDescription = styled(AlertDialog.Description, {
   "&::-webkit-scrollbar-thumb": {
     backgroundColor: "$lilac100",
     borderRadius: "2em",
+  },
+
+  "@max650px": {
+    textAlign: "center",
   },
 });
 
@@ -217,4 +251,6 @@ export const BookModalAction = styled(AlertDialog.Action, {
   "&:active": {
     backgroundColor: "$lilac100",
   },
+
+  "@max650px": {},
 });

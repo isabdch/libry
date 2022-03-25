@@ -75,8 +75,7 @@ export function BooksSection({ books }: BooksSectionProps) {
                                 : `${book.volumeInfo.imageLinks.thumbnail}`
                             }
                             alt={book.volumeInfo.title}
-                            height="220px"
-                            width="170px"
+                            layout="fill"
                           />
                         </div>
                         <div className="infoContent">
@@ -106,23 +105,21 @@ export function BooksSection({ books }: BooksSectionProps) {
                             ? book.volumeInfo.description
                             : "-- No description provided --"}
                         </BookModalDescription>
-                        <div className="buttons">
-                          <BookModalCancel>
-                            <BsXLg />
-                          </BookModalCancel>
-                          <BookModalAction
-                            onClick={(event) => event.preventDefault()}
-                          >
-                            Add to bookshelf
-                          </BookModalAction>
-                        </div>
+                        <BookModalCancel>
+                          <BsXLg />
+                        </BookModalCancel>
+                        <BookModalAction
+                          onClick={(event) => event.preventDefault()}
+                        >
+                          Add to bookshelf
+                        </BookModalAction>
                       </div>
                     </BookModalContent>
                   </AlertDialog.Portal>
                 </AlertDialog.Root>
               );
             })
-          : ""}
+          : "Nothing found."}
       </BooksSectionContainer>
     </BooksSectionComponent>
   );
