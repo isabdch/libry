@@ -277,6 +277,4 @@ export const BookModalAction = styled(AlertDialog.Action, {
   "&:active": {
     backgroundColor: "$lilac100",
   },
-
-  "@max650px": {},
 });
