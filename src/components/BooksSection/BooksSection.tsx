@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { Action, Dispatch } from "redux";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import Image from "next/image";
 import {
@@ -40,7 +41,7 @@ type BooksSectionProps = {
 };
 
 export function BooksSection({ books }: BooksSectionProps) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<Dispatch<Action>>();
 
   return (
     <BooksSectionComponent id="books-section">
@@ -119,7 +120,11 @@ export function BooksSection({ books }: BooksSectionProps) {
                           <BsXLg />
                         </BookModalCancel>
                         <BookModalAction
-                          onClick={(event) => event.preventDefault()}
+                          onClick={(event) =>
+                            event.type === "touchstart" && event.cancelable
+                              ? event.preventDefault()
+                              : null
+                          }
                         >
                           Add to bookshelf
                         </BookModalAction>

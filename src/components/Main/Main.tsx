@@ -37,7 +37,9 @@ export function Main({
   setInputValue,
   books,
 }: MainProps) {
+
   const scrollSpan = useRef(null);
+
   useEffect(() => {
     scrollSpan.current.scrollIntoView({ behavior: "smooth" });
   }, [books]);

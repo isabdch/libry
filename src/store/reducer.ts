@@ -7,8 +7,6 @@ export const allReducers = combineReducers({
   read: createReducerWithNamedType("READ"),
 });
 
-export type RootState = ReturnType<typeof allReducers>;
-
 function createReducerWithNamedType(ReducerName: string = "") {
   return function bookshelfReducer(
     state: [] = [],
@@ -25,44 +23,3 @@ function createReducerWithNamedType(ReducerName: string = "") {
   };
 }
 
-// function toReadBooksReducer(
-//   state: [] = [],
-//   action: { type: string; payload: Book }
-// ) {
-//   switch (action.type) {
-//     case "ADD_BOOK":
-//       return [...state, action.payload];
-//     case "REMOVE_BOOK":
-//       return state.filter((book: Book) => action.payload.id != book.id);
-//     default:
-//       return state;
-//   }
-// }
-
-// function readingBooksReducer(
-//   state: [] = [],
-//   action: { type: string; payload: Book }
-// ) {
-//   switch (action.type) {
-//     case "ADD_BOOK":
-//       return [...state, action.payload];
-//     case "REMOVE_BOOK":
-//       return state.filter((book: Book) => action.payload.id != book.id);
-//     default:
-//       return state;
-//   }
-// }
-
-// function readBooksReducer(
-//   state: [] = [],
-//   action: { type: string; payload: Book }
-// ) {
-//   switch (action.type) {
-//     case "ADD_BOOK":
-//       return [...state, action.payload];
-//     case "REMOVE_BOOK":
-//       return state.filter((book: Book) => action.payload.id != book.id);
-//     default:
-//       return state;
-//   }
-// }

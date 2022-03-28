@@ -24,17 +24,3 @@ export type BooksState = {
   books: Book[];
 };
 
-// // to read books types
-// export type ToReadState = {
-//   toReadBooks: Book[];
-// };
-
-// // reading books types
-// export type ReadingState = {
-//   readingBooks: Book[];
-// };
-
-// // read books types
-// export type ReadState = {
-//   readBooks: Book[];
-// };
