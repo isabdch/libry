@@ -38,7 +38,7 @@ export const globalStyles = globalCss({
 
     "@max1024px": {
       background:
-        "$lilac50 url('./images/confetti-doodles.svg') no-repeat fixed center",
+        "$lilac50 url('./images/wallpaper.svg') no-repeat fixed center",
       backgroundSize: "cover",
     },
   },
@@ -59,20 +59,5 @@ export const globalStyles = globalCss({
 
   li: {
     listStyleType: "none",
-  },
-
-  ".arrowUp": {
-    position: "fixed",
-    bottom: "10px",
-    left: "10px",
-    color: "$lilac80",
-    opacity: "0.8",
-    fontSize: "55px",
-    cursor: "pointer",
-    transition: ".2s",
-
-    "&:hover": {
-      opacity: "1",
-    },
   },
 });

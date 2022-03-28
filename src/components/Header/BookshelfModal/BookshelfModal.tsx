@@ -14,13 +14,19 @@ import {
 import { BsXLg } from "react-icons/bs";
 import { FaGoogle } from "react-icons/fa";
 
-export function BookshelfModal() {
+type BookshelfModalProps = {
+  setMenu: (arg: boolean) => void;
+};
+
+export function BookshelfModal({ setMenu }: BookshelfModalProps) {
   const { data: session } = useSession();
   const [bookshelfModal, setBookshelfModal] = useState(false);
 
   function handleIsBookshelfModalOpen() {
     if (!session) {
       setBookshelfModal(true);
+    } else {
+      setMenu(false);
     }
   }
 

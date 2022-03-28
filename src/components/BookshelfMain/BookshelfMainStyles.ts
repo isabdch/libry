@@ -11,17 +11,35 @@ const contentShow = keyframes({
   "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
 });
 
-export const BooksSectionComponent = styled("section", {
+export const BookshelfMainComponent = styled("main", {
   width: "100%",
-  marginTop: "5vh",
-  padding: "0px 20px",
-  flexCenterAI: "",
-});
+  position: "relative",
 
-export const BooksSectionContainer = styled("div", {
-  borderTop: "1px solid $lilac80",
-  flexCenterAI: "",
-  flexWrap: "wrap",
+  ".goBack": {
+    backgroundColor: "transparent",
+    color: "$purple500",
+    fontSize: "1em",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    margin: "10px",
+    transition: ".2s",
+
+    "&:hover": {
+      color: "$purple100",
+    },
+
+    "@min1440px": {
+      fontSize: "1.2vw",
+    },
+  },
+
+  section: {
+    height: "100%",
+    flexCenterAI: "",
+    flexWrap: "wrap",
+    padding: "30px",
+  },
 });
 
 export const BookCard = styled(AlertDialog.Trigger, {

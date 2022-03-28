@@ -1,14 +1,12 @@
 import Head from "next/head";
-import { useRef, useState } from "react";
+import React, { useState } from "react";
 import { BooksSection } from "../components/BooksSection/BooksSection";
 import { Main } from "../components/Main/Main";
 import { api } from "../services/api";
-import { GoArrowUp } from "react-icons/go";
 
 export default function Home() {
   const [books, setBooks] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const scrollArrowUp = useRef(null);
 
   function searchBooks(event: React.MouseEvent) {
     event.preventDefault();
@@ -24,17 +22,11 @@ export default function Home() {
     }
   }
 
-  function goUp() {
-    window.scrollTo(0, 0);
-  }
-
   return (
     <>
-      <span ref={scrollArrowUp}></span>
       <Head>
         <title>Libry</title>
       </Head>
-      <GoArrowUp onClick={goUp} className="arrowUp" />
       <Main
         searchBooks={(event) => searchBooks(event)}
         inputValue={inputValue}

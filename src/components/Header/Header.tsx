@@ -43,7 +43,7 @@ export function Header() {
               <h1>LIBRY</h1>
             </span>
           </Link>
-          <BookshelfModal />
+          <BookshelfModal setMenu={setMenu} />
         </div>
         <SignButtons />
       </div>

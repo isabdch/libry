@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { BookshelfHeader } from "../components/BookshelfHeader/BookshelfHeader";
+import { BookshelfMain } from "../components/BookshelfMain/BookshelfMain";
 
 export default function MyBookshelf() {
   return (
@@ -6,7 +8,8 @@ export default function MyBookshelf() {
       <Head>
         <title>Libry | My bookshelf</title>
       </Head>
-      <p>My bookshelf</p>
+      <BookshelfHeader />
+      <BookshelfMain />
     </>
   );
 }
