@@ -52,7 +52,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
     fontSize: "1.1em",
   },
 
-  button: {
+  ".addBtn": {
     padding: "3px 20px",
     borderRadius: "2rem",
     backgroundColor: "$lilac100",

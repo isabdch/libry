@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import Image from "next/image";
 import {
@@ -39,6 +40,8 @@ type BooksSectionProps = {
 };
 
 export function BooksSection({ books }: BooksSectionProps) {
+  const dispatch = useDispatch();
+
   return (
     <BooksSectionComponent id="books-section">
       <BooksSectionContainer>
@@ -59,7 +62,14 @@ export function BooksSection({ books }: BooksSectionProps) {
                       />
                     </div>
                     <h1>{book.volumeInfo.title}</h1>
-                    <button>Add to bookshelf</button>
+                    <span
+                      className="addBtn"
+                      onClick={() => {
+                        dispatch({ type: "ADD_BOOK_TO_READ", payload: book });
+                      }}
+                    >
+                      Add to bookshelf
+                    </span>
                   </BookCard>
                   <AlertDialog.Portal>
                     <BookModalOverlay />
