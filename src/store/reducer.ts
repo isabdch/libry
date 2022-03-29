@@ -5,6 +5,7 @@ export const allReducers = combineReducers({
   toRead: createReducerWithNamedType("TO_READ"),
   reading: createReducerWithNamedType("READING"),
   read: createReducerWithNamedType("READ"),
+  checkOpt: checkOptionReducer,
 });
 
 function createReducerWithNamedType(ReducerName: string = "") {
@@ -23,3 +24,18 @@ function createReducerWithNamedType(ReducerName: string = "") {
   };
 }
 
+function checkOptionReducer(
+  state: string = "toReadOpt",
+  action: { type: string }
+) {
+  switch (action.type) {
+    case "TO_READ":
+      return (state = "toReadOpt");
+    case "READING":
+      return (state = "readingOpt");
+    case "READ":
+      return (state = "readOpt");
+    default:
+      return state;
+  }
+}

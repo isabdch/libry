@@ -70,12 +70,12 @@ export const BookCard = styled(AlertDialog.Trigger, {
     fontSize: "1.1em",
   },
 
-  button: {
-    padding: "3px 20px",
+  ".addBtn": {
+    padding: "5px 20px",
     borderRadius: "2rem",
     backgroundColor: "$lilac100",
     color: "$white500",
-    fontSize: "1em",
+    fontSize: "1.2em",
     transition: ".2s",
 
     "&:hover": {
@@ -85,14 +85,6 @@ export const BookCard = styled(AlertDialog.Trigger, {
     "&:active": {
       backgroundColor: "$lilac100",
     },
-  },
-
-  "&:hover": {
-    transform: "scale(1.03)",
-  },
-
-  "&:active": {
-    backgroundColor: "#E8CBFF",
   },
 
   "&:focus": {
@@ -281,20 +273,5 @@ export const BookModalCancel = styled(AlertDialog.Cancel, {
 });
 
 export const BookModalAction = styled(AlertDialog.Action, {
-  padding: "5px 30px",
-  borderRadius: "2rem",
-  backgroundColor: "$lilac100",
-  color: "$white500",
-  fontSize: "1em",
-  transition: ".2s",
-
-  "&:hover": {
-    backgroundColor: "$lilac80",
-  },
-
-  "&:active": {
-    backgroundColor: "$lilac100",
-  },
-
-  "@max650px": {},
+  backgroundColor: "transparent",
 });

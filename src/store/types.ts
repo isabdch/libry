@@ -1,3 +1,5 @@
+import { allReducers } from "./reducer";
+
 // books types
 export type Images = {
   thumbnail: string;
@@ -24,3 +26,4 @@ export type BooksState = {
   books: Book[];
 };
 
+export type RootState = ReturnType<typeof allReducers>
