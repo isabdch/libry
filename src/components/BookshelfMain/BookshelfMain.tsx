@@ -29,7 +29,9 @@ export function BookshelfMain() {
               <Image src="/images/cover.png" alt="cover" layout="fill" />
             </div>
             <h1>Title</h1>
-            <button>Add as read</button>
+            <button onClick={(event) => event.preventDefault()}>
+              Add as read
+            </button>
           </BookCard>
           <AlertDialog.Portal>
             <BookModalOverlay />

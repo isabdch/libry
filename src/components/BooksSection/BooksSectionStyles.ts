@@ -49,32 +49,8 @@ export const BookCard = styled(AlertDialog.Trigger, {
 
   h1: {
     color: "$purple500",
-    fontSize: "1.1em",
-  },
-
-  ".addBtn": {
-    padding: "3px 20px",
-    borderRadius: "2rem",
-    backgroundColor: "$lilac100",
-    color: "$white500",
-    fontSize: "1em",
-    transition: ".2s",
-
-    "&:hover": {
-      backgroundColor: "$lilac80",
-    },
-
-    "&:active": {
-      backgroundColor: "$lilac100",
-    },
-  },
-
-  "&:hover": {
-    transform: "scale(1.03)",
-  },
-
-  "&:active": {
-    backgroundColor: "#E8CBFF",
+    fontSize: "1.3em",
+    marginBottom: "auto",
   },
 
   "&:focus": {
@@ -186,13 +162,15 @@ export const BookModalContent = styled(AlertDialog.Content, {
 
   "@max650px": {
     width: "90vw",
+    maxHeight: "95vh",
     flexDirection: "column",
     justifyContent: "",
-    maxHeight: "90vh",
     color: "$purple500",
     gap: "0px",
 
     ".info": {
+      height: "50vh",
+
       ".img": {
         height: "180px",
         width: "130px",
@@ -263,18 +241,5 @@ export const BookModalCancel = styled(AlertDialog.Cancel, {
 });
 
 export const BookModalAction = styled(AlertDialog.Action, {
-  padding: "5px 30px",
-  borderRadius: "2rem",
-  backgroundColor: "$lilac100",
-  color: "$white500",
-  fontSize: "1em",
-  transition: ".2s",
-
-  "&:hover": {
-    backgroundColor: "$lilac80",
-  },
-
-  "&:active": {
-    backgroundColor: "$lilac100",
-  },
+  backgroundColor: "transparent",
 });

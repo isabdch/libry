@@ -1,7 +1,6 @@
-import { useDispatch } from "react-redux";
-import { Action, Dispatch } from "redux";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import Image from "next/image";
+import { BooksState } from "../../store/types";
 import {
   BookCard,
   BookModalAction,
@@ -14,34 +13,10 @@ import {
   BooksSectionContainer,
 } from "./BooksSectionStyles";
 import { BsXLg } from "react-icons/bs";
+import { BookshelfPopover } from "../Popover/BookshelfPopover";
 
-type Images = {
-  thumbnail: string;
-  smallThumbnail: string;
-};
-
-type BookInfo = {
-  authors: string[];
-  categories: string[];
-  description: string;
-  imageLinks: Images;
-  pageCount: number;
-  publishedDate: string;
-  subtitle: string;
-  title: string;
-};
-
-type Books = {
-  id: string;
-  volumeInfo: BookInfo;
-};
-
-type BooksSectionProps = {
-  books: Books[];
-};
-
-export function BooksSection({ books }: BooksSectionProps) {
-  const dispatch = useDispatch<Dispatch<Action>>();
+export function BooksSection({ books }: BooksState) {
+  // const dispatch = useDispatch<Dispatch<Action>>();
 
   return (
     <BooksSectionComponent id="books-section">
@@ -62,14 +37,23 @@ export function BooksSection({ books }: BooksSectionProps) {
                         layout="fill"
                       />
                     </div>
-                    <h1>{book.volumeInfo.title}</h1>
+                    <h1>
+                      {book.volumeInfo.title.split(" ").filter((n) => n != "")
+                        .length > 5
+                        ? book.volumeInfo.title
+                            .split(" ")
+                            .slice(0, 4)
+                            .join(" ") + "..."
+                        : book.volumeInfo.title}
+                    </h1>
                     <span
                       className="addBtn"
-                      onClick={() => {
-                        dispatch({ type: "ADD_BOOK_TO_READ", payload: book });
+                      onClick={(event) => {
+                        event.preventDefault();
+                        // dispatch({ type: "ADD_BOOK_TO_READ", payload: book });
                       }}
                     >
-                      Add to bookshelf
+                      <BookshelfPopover />
                     </span>
                   </BookCard>
                   <AlertDialog.Portal>
@@ -120,13 +104,9 @@ export function BooksSection({ books }: BooksSectionProps) {
                           <BsXLg />
                         </BookModalCancel>
                         <BookModalAction
-                          onClick={(event) =>
-                            event.type === "touchstart" && event.cancelable
-                              ? event.preventDefault()
-                              : null
-                          }
+                          onClick={(event) => event.preventDefault()}
                         >
-                          Add to bookshelf
+                          <BookshelfPopover />
                         </BookModalAction>
                       </div>
                     </BookModalContent>

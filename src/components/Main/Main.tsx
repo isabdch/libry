@@ -1,34 +1,14 @@
+import { useEffect, useRef } from "react";
+import { Book } from "../../store/types";
 import Image from "next/image";
 import { MainComponent } from "./MainStyles";
 import { BsSearch } from "react-icons/bs";
-import { useEffect, useRef } from "react";
-
-type Images = {
-  thumbnail: string;
-  smallThumbnail: string;
-};
-
-type BookInfo = {
-  authors: string[];
-  categories: string[];
-  description: string;
-  imageLinks: Images;
-  pageCount: number;
-  publishedDate: string;
-  subtitle: string;
-  title: string;
-};
-
-type Books = {
-  id: string;
-  volumeInfo: BookInfo;
-};
 
 type MainProps = {
   searchBooks: (event: React.MouseEvent) => void;
   inputValue: string;
   setInputValue: (arg0: string) => void;
-  books: Books[];
+  books: Book[];
 };
 
 export function Main({
