@@ -11,11 +11,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   const store = createStore(allReducers, applyMiddleware(thunk));
 
-  store.subscribe(() => {
-    console.log(store.getState().toRead);
-    console.log(store.getState().reading);
-    console.log(store.getState().read);
-  });
+  // store.subscribe(() => {
+  //   console.log(store.getState().toRead);
+  //   console.log(store.getState().reading);
+  //   console.log(store.getState().read);
+  // });
 
   return (
     <Provider store={store}>
