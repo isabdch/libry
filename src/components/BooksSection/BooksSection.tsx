@@ -13,11 +13,9 @@ import {
   BooksSectionContainer,
 } from "./BooksSectionStyles";
 import { BsXLg } from "react-icons/bs";
-import { BookshelfPopover } from "../Popover/BookshelfPopover";
+import { BookshelfPopover } from "../BooksSectionPopover/BooksSectionPopover";
 
 export function BooksSection({ books }: BooksState) {
-  // const dispatch = useDispatch<Dispatch<Action>>();
-
   return (
     <BooksSectionComponent id="books-section">
       <BooksSectionContainer>
@@ -50,10 +48,9 @@ export function BooksSection({ books }: BooksState) {
                       className="addBtn"
                       onClick={(event) => {
                         event.preventDefault();
-                        // dispatch({ type: "ADD_BOOK_TO_READ", payload: book });
                       }}
                     >
-                      <BookshelfPopover />
+                      <BookshelfPopover id={book.id} volumeInfo={book.volumeInfo} />
                     </span>
                   </BookCard>
                   <AlertDialog.Portal>
@@ -106,7 +103,7 @@ export function BooksSection({ books }: BooksState) {
                         <BookModalAction
                           onClick={(event) => event.preventDefault()}
                         >
-                          <BookshelfPopover />
+                          <BookshelfPopover id={book.id} volumeInfo={book.volumeInfo} />
                         </BookModalAction>
                       </div>
                     </BookModalContent>

@@ -46,7 +46,7 @@ export const PopoverContent = styled(Popover.Content, {
   backgroundColor: "$white500",
   boxShadow: "0px 1px 5px #9D4EDD",
   width: "200px",
-  borderRadius: "1.5em",
+  borderRadius: "0.5em",
   flexDirection: "column",
   flexCenterJC: "space-evenly",
 
@@ -70,10 +70,9 @@ export const PopoverArrow = styled(Popover.Arrow, {
 
 export const PopoverClose = styled(Popover.Close, {
   width: "100%",
-  borderRadius: "1.5em",
   flexCenterAI: "",
   backgroundColor: "transparent",
-  fontSize: "0.9em",
+  fontSize: "1em",
 
   ".option": {
     flexCenterAI: "center",
