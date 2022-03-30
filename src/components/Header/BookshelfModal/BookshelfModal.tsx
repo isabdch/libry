@@ -19,21 +19,21 @@ type BookshelfModalProps = {
 };
 
 export function BookshelfModal({ setMenu }: BookshelfModalProps) {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const [bookshelfModal, setBookshelfModal] = useState(false);
 
   function handleIsBookshelfModalOpen() {
-    if (!session) {
-      setBookshelfModal(true);
-    } else {
-      setMenu(false);
-    }
+    // if (!session) {
+    //   setBookshelfModal(true);
+    // } else {
+    //   setMenu(false);
+    // }
   }
 
   return (
     <AlertDialog.Root open={bookshelfModal}>
       <ModalTrigger>
-        <Link href={session ? "/mybookshelf" : "/"}>
+        <Link href="/mybookshelf">
           <a onClick={handleIsBookshelfModalOpen} className="myShelf">
             My bookshelf
           </a>

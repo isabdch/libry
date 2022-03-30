@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import { auth, signInGoogle, signOutGoogle } from "../../../services/auth/auth";
 import Image from "next/image";
 import {
   SignInButtonComponent,
@@ -6,27 +6,38 @@ import {
 } from "./SignButtonsStyle";
 import { FaGoogle } from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
+import { useState } from "react";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 export function SignButtons() {
-  const { data: session } = useSession();
+  const [userOn, setUserOn] = useState<User>(null);
 
-  return session ? (
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUserOn(user);
+    } else {
+      console.log("Nobody is signed in.");
+      setUserOn(null);
+    }
+  });
+
+  return userOn ? (
     <SignOutButtonComponent
       title="Sign out"
       className="signOutButton"
-      onClick={() => signOut()}
+      onClick={signOutGoogle}
     >
       <Image
-        src={session.user.image}
+        src={userOn.photoURL}
         className="profileImg"
         alt="Profile image"
         width="35px"
         height="35px"
       />
-      {session.user.name} <BsXLg className="signOutIcon" />
+      {userOn.displayName} <BsXLg className="signOutIcon" />
     </SignOutButtonComponent>
   ) : (
-    <SignInButtonComponent title="Sign in" onClick={() => signIn("google")}>
+    <SignInButtonComponent title="Sign in" onClick={signInGoogle}>
       Sign in with Google <FaGoogle className="googleIcon" />
     </SignInButtonComponent>
   );

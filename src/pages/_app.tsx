@@ -1,4 +1,3 @@
-import { SessionProvider as AuthProvider } from "next-auth/react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { allReducers } from "../store/reducer";
@@ -12,10 +11,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   return (
     <Provider store={store}>
-      <AuthProvider session={session}>
         <Header />
         <Component {...pageProps} />
-      </AuthProvider>
     </Provider>
   );
 }
