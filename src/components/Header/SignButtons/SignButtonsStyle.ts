@@ -31,6 +31,7 @@ export const SignInButtonComponent = styled("button", {
 
 export const SignOutButtonComponent = styled("button", {
   padding: "3px 18px",
+  paddingLeft: "12px",
   borderRadius: "2rem",
   backgroundColor: "$lilac100",
   color: "$white500",

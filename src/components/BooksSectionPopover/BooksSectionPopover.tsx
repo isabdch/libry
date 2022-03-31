@@ -1,6 +1,6 @@
 import { Book, RootState } from "../../store/types";
-import { signOutGoogle } from "../../services/auth/auth";
-import { app, database } from "../../services/firebase/clientApp";
+import { database } from "../../services/firebase/clientApp";
+import { doc, setDoc } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import * as Popover from "@radix-ui/react-popover";
 import {
@@ -15,6 +15,8 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
     return state.isUserSignedIn;
   });
 
+  const userRef = doc(database, "users", isSignedIn ? isSignedIn.uid : "none");
+
   return (
     <Popover.Root>
       <PopoverTrigger asChild={true}>
@@ -23,17 +25,74 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
       <Popover.Anchor />
       <PopoverContent>
         <PopoverClose>
-          <span className="option" onClick={() => {}}>
+          <span
+            className="option"
+            onClick={() => {
+              isSignedIn
+                ? setDoc(
+                    doc(userRef, "toReadBooks", `${volumeInfo.title}-${id}`),
+                    {
+                      id,
+                      volumeInfo,
+                    }
+                  )
+                    .then(() =>
+                      console.log(
+                        "Book added successfully to 'To Read' shelf in firestore." // do something visually
+                      )
+                    )
+                    .catch((error) => error)
+                : null; // do something visually
+            }}
+          >
             To read
           </span>
         </PopoverClose>
         <PopoverClose>
-          <span className="option center" onClick={() => {}}>
+          <span
+            className="option center"
+            onClick={() => {
+              isSignedIn
+                ? setDoc(
+                    doc(userRef, "readingBooks", `${volumeInfo.title}-${id}`),
+                    {
+                      id,
+                      volumeInfo,
+                    }
+                  )
+                    .then(() =>
+                      console.log(
+                        "Book added successfully to 'Reading' shelf in firestore." // do something visually
+                      )
+                    )
+                    .catch((error) => error)
+                : null;
+            }}
+          >
             Reading
           </span>
         </PopoverClose>
         <PopoverClose>
-          <span className="option" onClick={() => {}}>
+          <span
+            className="option"
+            onClick={() => {
+              isSignedIn
+                ? setDoc(
+                    doc(userRef, "readBooks", `${volumeInfo.title}-${id}`),
+                    {
+                      id,
+                      volumeInfo,
+                    }
+                  )
+                    .then(() =>
+                      console.log(
+                        "Book added successfully to 'Read' shelf in firestore." // do something visually
+                      )
+                    )
+                    .catch((error) => error)
+                : null;
+            }}
+          >
             Read
           </span>
         </PopoverClose>
