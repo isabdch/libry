@@ -41,7 +41,7 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
                         "Book added successfully to 'To Read' shelf in firestore." // do something visually
                       )
                     )
-                    .catch((error) => error)
+                    .catch((error) => error) // do something visually
                 : null; // do something visually
             }}
           >
@@ -62,7 +62,7 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
                   )
                     .then(() =>
                       console.log(
-                        "Book added successfully to 'Reading' shelf in firestore." // do something visually
+                        "Book added successfully to 'Reading' shelf in firestore."
                       )
                     )
                     .catch((error) => error)
@@ -86,7 +86,7 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
                   )
                     .then(() =>
                       console.log(
-                        "Book added successfully to 'Read' shelf in firestore." // do something visually
+                        "Book added successfully to 'Read' shelf in firestore."
                       )
                     )
                     .catch((error) => error)
