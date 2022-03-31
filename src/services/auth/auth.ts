@@ -9,6 +9,7 @@ import { app } from "../firebase/clientApp";
 
 const provider = new GoogleAuthProvider();
 export const auth = getAuth(app);
+export const user = auth.currentUser;
 
 export function signInGoogle() {
   signInWithRedirect(auth, provider);

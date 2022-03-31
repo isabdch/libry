@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useSession, signIn } from "next-auth/react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/types";
+import { signInGoogle } from "../../../services/auth/auth";
 import Link from "next/link";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import {
@@ -19,21 +21,23 @@ type BookshelfModalProps = {
 };
 
 export function BookshelfModal({ setMenu }: BookshelfModalProps) {
-  // const { data: session } = useSession();
   const [bookshelfModal, setBookshelfModal] = useState(false);
+  const isSignedIn = useSelector((state: RootState) => {
+    return state.isUserSignedIn;
+  });
 
   function handleIsBookshelfModalOpen() {
-    // if (!session) {
-    //   setBookshelfModal(true);
-    // } else {
-    //   setMenu(false);
-    // }
+    if (isSignedIn == null) {
+      setBookshelfModal(true);
+    } else {
+      setMenu(false);
+    }
   }
 
   return (
     <AlertDialog.Root open={bookshelfModal}>
       <ModalTrigger>
-        <Link href="/mybookshelf">
+        <Link href={isSignedIn ? "/mybookshelf" : "/"}>
           <a onClick={handleIsBookshelfModalOpen} className="myShelf">
             My bookshelf
           </a>
@@ -58,7 +62,7 @@ export function BookshelfModal({ setMenu }: BookshelfModalProps) {
           </ModalCancel>
           <ModalAction
             onClick={() => {
-              signIn("google");
+              signInGoogle();
               setBookshelfModal(false);
             }}
           >

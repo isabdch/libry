@@ -10,18 +10,7 @@ export default function Home() {
   const [books, setBooks] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  useEffect(() => {
-    isSignedIn();
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log(user);
-      } else {
-        console.log("Nobody is signed in.")
-      }
-    });
-  }, []);
-
+  
   function searchBooks(event: React.MouseEvent) {
     event.preventDefault();
 

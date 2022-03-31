@@ -1,4 +1,6 @@
+import { User } from "firebase/auth";
 import { combineReducers } from "redux";
+import { user } from "../services/auth/auth";
 // import { Book } from "./types";
 
 export const allReducers = combineReducers({
@@ -6,6 +8,7 @@ export const allReducers = combineReducers({
   // reading: createReducerWithNamedType("READING"),
   // read: createReducerWithNamedType("READ"),
   checkOpt: checkOptionReducer,
+  isUserSignedIn: isSignedInReducer,
 });
 
 // function createReducerWithNamedType(ReducerName: string = "") {
@@ -23,6 +26,20 @@ export const allReducers = combineReducers({
 //     }
 //   };
 // }
+
+function isSignedInReducer(
+  state: null | User = null,
+  action: {type: string, payload: User},
+) {
+  switch (action.type) {
+    case "SET_USER_ON":
+      return (state = action.payload);
+    case "SET_USER_OFF":
+      return (state = null);
+    default:
+      return state;
+  }
+}
 
 function checkOptionReducer(
   state: string = "toReadOpt",

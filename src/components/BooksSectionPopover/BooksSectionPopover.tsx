@@ -1,5 +1,7 @@
-import { useDispatch } from "react-redux";
-import { Action, Dispatch } from "redux";
+import { Book, RootState } from "../../store/types";
+import { signOutGoogle } from "../../services/auth/auth";
+import { app, database } from "../../services/firebase/clientApp";
+import { useSelector } from "react-redux";
 import * as Popover from "@radix-ui/react-popover";
 import {
   PopoverArrow,
@@ -7,10 +9,11 @@ import {
   PopoverTrigger,
   PopoverClose,
 } from "./BooksSectionPopoverStyles";
-import { Book } from "../../store/types";
 
 export function BookshelfPopover({ id, volumeInfo }: Book) {
-  const dispatch = useDispatch<Dispatch<Action>>();
+  const isSignedIn = useSelector((state: RootState) => {
+    return state.isUserSignedIn;
+  });
 
   return (
     <Popover.Root>
@@ -20,41 +23,17 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
       <Popover.Anchor />
       <PopoverContent>
         <PopoverClose>
-          <span
-            className="option"
-            onClick={() =>
-              dispatch({
-                type: "ADD_BOOK_TO_READ",
-                payload: { id, volumeInfo },
-              })
-            }
-          >
+          <span className="option" onClick={() => {}}>
             To read
           </span>
         </PopoverClose>
         <PopoverClose>
-          <span
-            className="option center"
-            onClick={() =>
-              dispatch({
-                type: "ADD_BOOK_READING",
-                payload: { id, volumeInfo },
-              })
-            }
-          >
+          <span className="option center" onClick={() => {}}>
             Reading
           </span>
         </PopoverClose>
         <PopoverClose>
-          <span
-            className="option"
-            onClick={() =>
-              dispatch({
-                type: "ADD_BOOK_READ",
-                payload: { id, volumeInfo },
-              })
-            }
-          >
+          <span className="option" onClick={() => {}}>
             Read
           </span>
         </PopoverClose>

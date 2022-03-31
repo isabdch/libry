@@ -1,4 +1,8 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { Action, Dispatch } from "redux";
 import { auth, signInGoogle, signOutGoogle } from "../../../services/auth/auth";
+import { RootState } from "../../../store/types";
 import Image from "next/image";
 import {
   SignInButtonComponent,
@@ -6,35 +10,37 @@ import {
 } from "./SignButtonsStyle";
 import { FaGoogle } from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
-import { useState } from "react";
-import { onAuthStateChanged, User } from "firebase/auth";
 
 export function SignButtons() {
-  const [userOn, setUserOn] = useState<User>(null);
+  const isSignedIn = useSelector((state: RootState) => {
+    return state.isUserSignedIn;
+  });
+  const dispatch = useDispatch<Dispatch<Action>>();
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setUserOn(user);
+      dispatch({ type: "SET_USER_ON", payload: user });
+      console.log(user);
     } else {
       console.log("Nobody is signed in.");
-      setUserOn(null);
+      dispatch({ type: "SET_USER_OFF" });
     }
   });
 
-  return userOn ? (
+  return isSignedIn ? (
     <SignOutButtonComponent
       title="Sign out"
       className="signOutButton"
       onClick={signOutGoogle}
     >
       <Image
-        src={userOn.photoURL}
+        src={isSignedIn.photoURL}
         className="profileImg"
         alt="Profile image"
         width="35px"
         height="35px"
       />
-      {userOn.displayName} <BsXLg className="signOutIcon" />
+      {isSignedIn.displayName} <BsXLg className="signOutIcon" />
     </SignOutButtonComponent>
   ) : (
     <SignInButtonComponent title="Sign in" onClick={signInGoogle}>
