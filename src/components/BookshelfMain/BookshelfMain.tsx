@@ -12,7 +12,6 @@ import {
   doc,
   DocumentData,
   getDocs,
-  onSnapshot,
   orderBy,
   query,
   where,
