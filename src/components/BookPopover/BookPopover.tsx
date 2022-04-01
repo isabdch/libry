@@ -23,30 +23,30 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
 
   const userRef = doc(database, "users", isSignedIn ? isSignedIn.uid : "none");
 
-  function addBookToToReadBooks() {
-    setDoc(doc(userRef, "toReadBooks", `Book ${volumeInfo.title}`), {
+  function addBookBookshelf(add: string, remove1: string, remove2: string) {
+    setDoc(doc(userRef, add, `Book ${volumeInfo.title}`), {
       id,
       volumeInfo,
     })
       .then(() =>
         console.log(
-          "Book added successfully to 'To Read' shelf in firestore." // do something visually
+          `Book added successfully to 'To Read' shelf in firestore.` // do something visually
         )
       )
       .catch((error) => error);
 
-    deleteDoc(doc(userRef, "readingBooks", `Book ${volumeInfo.title}`))
+    deleteDoc(doc(userRef, remove1, `Book ${volumeInfo.title}`))
       .then(() =>
         console.log(
-          "Book removed successfully from 'Reading' shelf in firestore." // do something visually
+          `Book removed successfully from '${remove1}' shelf in firestore.` // do something visually
         )
       )
       .catch((error) => error);
 
-    deleteDoc(doc(userRef, "readBooks", `Book ${volumeInfo.title}`))
+    deleteDoc(doc(userRef, remove2, `Book ${volumeInfo.title}`))
       .then(() =>
         console.log(
-          "Book removed successfully from 'Read' shelf in firestore." // do something visually
+          `Book removed successfully from '${remove2}' shelf in firestore.` // do something visually
         )
       )
       .catch((error) => error);
@@ -63,7 +63,9 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
           <span
             className="option"
             onClick={() => {
-              isSignedIn ? addBookToToReadBooks() : null; // do something visually
+              isSignedIn
+                ? addBookBookshelf("toReadBooks", "readingBooks", "readBooks")
+                : null; // do something visually
             }}
           >
             To read
@@ -74,19 +76,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             className="option center"
             onClick={() => {
               isSignedIn
-                ? setDoc(
-                    doc(userRef, "readingBooks", `Book ${volumeInfo.title}`),
-                    {
-                      id,
-                      volumeInfo,
-                    }
-                  )
-                    .then(() =>
-                      console.log(
-                        "Book added successfully to 'Reading' shelf in firestore."
-                      )
-                    )
-                    .catch((error) => error)
+                ? addBookBookshelf("readingBooks", "toReadBooks", "readBooks")
                 : null;
             }}
           >
@@ -98,16 +88,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             className="option"
             onClick={() => {
               isSignedIn
-                ? setDoc(doc(userRef, "readBooks", `Book ${volumeInfo.title}`), {
-                    id,
-                    volumeInfo,
-                  })
-                    .then(() =>
-                      console.log(
-                        "Book added successfully to 'Read' shelf in firestore."
-                      )
-                    )
-                    .catch((error) => error)
+                ? addBookBookshelf("readBooks", "toReadBooks", "readingBooks")
                 : null;
             }}
           >
