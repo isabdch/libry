@@ -1,7 +1,8 @@
 import { BookInfo, RootState } from "../../store/types";
 import { database } from "../../services/firebase/clientApp";
 import { deleteDoc, doc, setDoc } from "firebase/firestore";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Action, Dispatch } from "redux";
 import * as Popover from "@radix-ui/react-popover";
 import {
   PopoverArrow,
@@ -17,11 +18,36 @@ type BookPopoverProps = {
 };
 
 export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
+  const dispatch = useDispatch<Dispatch<Action>>();
+
+  const checkedOptState = useSelector((state: RootState) => {
+    return state.checkOpt;
+  });
+
   const isSignedIn = useSelector((state: RootState) => {
     return state.isUserSignedIn;
   });
 
   const userRef = doc(database, "users", isSignedIn ? isSignedIn.uid : "none");
+
+  function changeCheckedOptState() {
+    if (checkedOptState == "toReadOpt") {
+      dispatch({ type: "READ" });
+      setTimeout(() => {
+        dispatch({ type: "TO_READ" });
+      }, 0.1);
+    } else if (checkedOptState == "readingOpt") {
+      dispatch({ type: "TO_READ" });
+      setTimeout(() => {
+        dispatch({ type: "READING" });
+      }, 0.1);
+    } else if (checkedOptState == "readOpt") {
+      dispatch({ type: "TO_READ" });
+      setTimeout(() => {
+        dispatch({ type: "READ" });
+      }, 0.1);
+    }
+  }
 
   function addBookBookshelf(add: string, remove1: string, remove2: string) {
     setDoc(doc(userRef, add, `Book ${volumeInfo.title}`), {
@@ -30,7 +56,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
     })
       .then(() =>
         console.log(
-          `Book added successfully to 'To Read' shelf in firestore.` // do something visually
+          `Book added successfully to '${add}' shelf in firestore.` // do something visually
         )
       )
       .catch((error) => error);
@@ -63,9 +89,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
           <span
             className="option"
             onClick={() => {
-              isSignedIn
-                ? addBookBookshelf("toReadBooks", "readingBooks", "readBooks")
-                : null; // do something visually
+              if (isSignedIn) {
+                addBookBookshelf("toReadBooks", "readingBooks", "readBooks");
+                changeCheckedOptState();
+              }
             }}
           >
             To read
@@ -75,9 +102,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
           <span
             className="option center"
             onClick={() => {
-              isSignedIn
-                ? addBookBookshelf("readingBooks", "toReadBooks", "readBooks")
-                : null;
+              if (isSignedIn) {
+                addBookBookshelf("readingBooks", "toReadBooks", "readBooks");
+                changeCheckedOptState();
+              }
             }}
           >
             Reading
@@ -87,9 +115,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
           <span
             className="option"
             onClick={() => {
-              isSignedIn
-                ? addBookBookshelf("readBooks", "toReadBooks", "readingBooks")
-                : null;
+              if (isSignedIn) {
+                addBookBookshelf("readBooks", "toReadBooks", "readingBooks");
+                changeCheckedOptState();
+              }
             }}
           >
             Read

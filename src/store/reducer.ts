@@ -1,26 +1,10 @@
 import { User } from "firebase/auth";
 import { combineReducers } from "redux";
-import { Book } from "./types";
 
 export const allReducers = combineReducers({
-  bookshelf: bookshelfReducer,
   checkOpt: checkOptionReducer,
   isUserSignedIn: isSignedInReducer,
 });
-
-function bookshelfReducer(
-  state: [] = [],
-  action: { type: string; payload: Book }
-) {
-  switch (action.type) {
-    case "ADD_BOOK":
-      return [...state, action.payload];
-    case "REMOVE_BOOK":
-      return state.filter((book: Book) => action.payload.id != book.id);
-    default:
-      return state;
-  }
-}
 
 function isSignedInReducer(
   state: null | User = null,

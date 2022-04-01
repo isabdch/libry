@@ -28,7 +28,7 @@ export const BookshelfMainComponent = styled("main", {
     "&:hover": {
       color: "$purple100",
     },
-    
+
     "@min1440px": {
       fontSize: "1.2vw",
     },
@@ -71,12 +71,28 @@ export const BookCard = styled(AlertDialog.Trigger, {
     marginBottom: "auto",
   },
 
+  ".btns": {
+    flexCenterAI: "center",
+    gap: "10px",
+
+    ".trashBtn": {
+      fontSize: "1.2em",
+      marginTop: "5px",
+      color: "$purple500",
+      transition: ".2s",
+
+      "&:hover": {
+        color: "$purple200",
+      },
+    },
+  },
+
   "&:focus": {
     outlineColor: "$purple500",
   },
 
   "@min1440px": {
-    width: "13vw",
+    width: "15vw",
     padding: "1vw",
     margin: "1vw 0.5vw",
     fontSize: "1vw",
@@ -84,7 +100,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
 
     ".img": {
       height: "30vh",
-      width: "11vw",
+      width: "12.5vw",
 
       img: {
         borderRadius: "0.5em",
@@ -258,4 +274,24 @@ export const BookModalCancel = styled(AlertDialog.Cancel, {
 
 export const BookModalAction = styled(AlertDialog.Action, {
   backgroundColor: "transparent",
+
+  ".btns": {
+    flexCenterAI: "center",
+    gap: "10px",
+
+    ".trashBtn": {
+      fontSize: "1.2em",
+      marginTop: "5px",
+      color: "$purple500",
+      transition: ".2s",
+
+      "&:hover": {
+        color: "$purple200",
+      },
+
+      "@min1440px": {
+        fontSize: "1vw",
+      },
+    },
+  },
 });
