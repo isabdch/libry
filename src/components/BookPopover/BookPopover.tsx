@@ -11,14 +11,12 @@ import {
 } from "./BookPopoverStyles";
 
 type BookPopoverProps = {
-  id: string,
-  volumeInfo: BookInfo,
-  trigger: string,
-}
+  id: string;
+  volumeInfo: BookInfo;
+  trigger: string;
+};
 
-export function BookPopover(
-  { id, volumeInfo, trigger }: BookPopoverProps,
-) {
+export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
   const isSignedIn = useSelector((state: RootState) => {
     return state.isUserSignedIn;
   });
@@ -38,7 +36,13 @@ export function BookPopover(
             onClick={() => {
               isSignedIn
                 ? setDoc(
-                    doc(userRef, "toReadBooks", `${volumeInfo.title}-${id}`),
+                    doc(
+                      userRef,
+                      "toReadBooks",
+                      `${new Date().getSeconds()}${new Date().getMinutes()}${new Date().getHours()}${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()} - ${
+                        volumeInfo.title
+                      }`
+                    ),
                     {
                       id,
                       volumeInfo,
@@ -62,7 +66,13 @@ export function BookPopover(
             onClick={() => {
               isSignedIn
                 ? setDoc(
-                    doc(userRef, "readingBooks", `${volumeInfo.title}-${id}`),
+                    doc(
+                      userRef,
+                      "readingBooks",
+                      `${new Date().getSeconds()}${new Date().getMinutes()}${new Date().getHours()}${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()} - ${
+                        volumeInfo.title
+                      }`
+                    ),
                     {
                       id,
                       volumeInfo,
@@ -86,7 +96,13 @@ export function BookPopover(
             onClick={() => {
               isSignedIn
                 ? setDoc(
-                    doc(userRef, "readBooks", `${volumeInfo.title}-${id}`),
+                    doc(
+                      userRef,
+                      "readBooks",
+                      `${new Date().getSeconds()}${new Date().getMinutes()}${new Date().getHours()}${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()} - ${
+                        volumeInfo.title
+                      }`
+                    ),
                     {
                       id,
                       volumeInfo,

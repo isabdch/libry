@@ -3,6 +3,7 @@ import {
   doc,
   DocumentData,
   getDocs,
+  orderBy,
   query,
   where,
 } from "firebase/firestore";
@@ -59,7 +60,7 @@ export function BookshelfMain() {
 
     async function loadBooks() {
       const querySnapshot = await getDocs(
-        query(collection(userRef, collectionId()), where("id", "!=", null))
+        query(collection(userRef, collectionId()), where("id", "!=", null), orderBy("id", "desc"))
       );
 
       querySnapshot.forEach((doc: DocumentData) => {
