@@ -6,12 +6,10 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { BookshelfPopover } from "./BookshelfPopover/BookshelfPopover";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { database } from "../../services/firebase/clientApp";
 import { RootState, Book } from "../../store/types";
 import { useSelector } from "react-redux";
-import { User } from "firebase/auth";
 import Link from "next/link";
 import {
   BookCard,
@@ -27,6 +25,7 @@ import { BsFillReplyFill } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { BookPopover } from "../BookPopover/BookPopover";
 
 export function BookshelfMain() {
   const [books, setBooks] = useState<Array<{}>>([]);
@@ -35,7 +34,7 @@ export function BookshelfMain() {
     return state.checkOpt;
   });
 
-  const isSignedIn: null | User = useSelector((state: RootState) => {
+  const isSignedIn = useSelector((state: RootState) => {
     return state.isUserSignedIn;
   });
 
@@ -108,12 +107,20 @@ export function BookshelfMain() {
                         : book.volumeInfo.title}
                     </h1>
                     <div
-                      className="addBtn"
+                      className={checkedOptState == "readOpt" ? "" : "addBtn"}
                       onClick={(event) => {
                         event.preventDefault();
                       }}
                     >
-                      Add as read
+                      {checkedOptState == "readOpt" ? (
+                        <BookPopover
+                          id={book.id}
+                          volumeInfo={book.volumeInfo}
+                          trigger={"Edit bookshelf"}
+                        />
+                      ) : (
+                        "Add as read"
+                      )}
                     </div>
                   </BookCard>
                   <AlertDialog.Portal>
@@ -166,9 +173,10 @@ export function BookshelfMain() {
                         <BookModalAction
                           onClick={(event) => event.preventDefault()}
                         >
-                          <BookshelfPopover
+                          <BookPopover
                             id={book.id}
                             volumeInfo={book.volumeInfo}
+                            trigger={"Edit bookshelf"}
                           />
                         </BookModalAction>
                       </div>

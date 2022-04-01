@@ -28,7 +28,7 @@ export const BookshelfMainComponent = styled("main", {
     "&:hover": {
       color: "$purple100",
     },
-
+    
     "@min1440px": {
       fontSize: "1.2vw",
     },

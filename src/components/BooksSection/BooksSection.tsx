@@ -13,7 +13,7 @@ import {
   BooksSectionContainer,
 } from "./BooksSectionStyles";
 import { BsXLg } from "react-icons/bs";
-import { BookshelfPopover } from "../BooksSectionPopover/BooksSectionPopover";
+import { BookPopover } from "../BookPopover/BookPopover";
 
 export function BooksSection({ books }: BooksState) {
   return (
@@ -50,7 +50,11 @@ export function BooksSection({ books }: BooksState) {
                         event.preventDefault();
                       }}
                     >
-                      <BookshelfPopover id={book.id} volumeInfo={book.volumeInfo} />
+                      <BookPopover
+                        id={book.id}
+                        volumeInfo={book.volumeInfo}
+                        trigger={"Add to bookshelf"}
+                      />
                     </span>
                   </BookCard>
                   <AlertDialog.Portal>
@@ -103,7 +107,11 @@ export function BooksSection({ books }: BooksState) {
                         <BookModalAction
                           onClick={(event) => event.preventDefault()}
                         >
-                          <BookshelfPopover id={book.id} volumeInfo={book.volumeInfo} />
+                          <BookPopover
+                            id={book.id}
+                            volumeInfo={book.volumeInfo}
+                            trigger={"Add to bookshelf"}
+                          />
                         </BookModalAction>
                       </div>
                     </BookModalContent>

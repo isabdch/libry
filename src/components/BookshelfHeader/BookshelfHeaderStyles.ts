@@ -6,8 +6,6 @@ export const BookshelfHeaderComponent = styled("header", {
   backgroundColor: "$lilac80",
   color: "#FFFFFFB3",
   flexCenterJC: "space-evenly",
-  position: "sticky",
-  top: 0,
 
   div: {
     cursor: "pointer",

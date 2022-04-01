@@ -1,4 +1,4 @@
-import { Book, RootState } from "../../store/types";
+import { BookInfo, RootState } from "../../store/types";
 import { database } from "../../services/firebase/clientApp";
 import { doc, setDoc } from "firebase/firestore";
 import { useSelector } from "react-redux";
@@ -8,9 +8,17 @@ import {
   PopoverContent,
   PopoverTrigger,
   PopoverClose,
-} from "./BooksSectionPopoverStyles";
+} from "./BookPopoverStyles";
 
-export function BookshelfPopover({ id, volumeInfo }: Book) {
+type BookPopoverProps = {
+  id: string,
+  volumeInfo: BookInfo,
+  trigger: string,
+}
+
+export function BookPopover(
+  { id, volumeInfo, trigger }: BookPopoverProps,
+) {
   const isSignedIn = useSelector((state: RootState) => {
     return state.isUserSignedIn;
   });
@@ -20,7 +28,7 @@ export function BookshelfPopover({ id, volumeInfo }: Book) {
   return (
     <Popover.Root>
       <PopoverTrigger asChild={true}>
-        <div>Add to bookshelf</div>
+        <div>{trigger}</div>
       </PopoverTrigger>
       <Popover.Anchor />
       <PopoverContent>
