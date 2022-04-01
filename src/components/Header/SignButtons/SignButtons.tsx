@@ -31,7 +31,7 @@ export function SignButtons() {
     <SignOutButtonComponent
       title="Sign out"
       className="signOutButton"
-      onClick={signOutGoogle}
+      // onClick={signOutGoogle}
     >
       <Image
         src={isSignedIn.photoURL}
