@@ -60,7 +60,11 @@ export function BookshelfMain() {
 
     async function loadBooks() {
       const querySnapshot = await getDocs(
-        query(collection(userRef, collectionId()), where("id", "!=", null), orderBy("id", "desc"))
+        query(
+          collection(userRef, collectionId()),
+          where("id", "!=", null),
+          orderBy("id", "desc")
+        )
       );
 
       querySnapshot.forEach((doc: DocumentData) => {
@@ -107,22 +111,18 @@ export function BookshelfMain() {
                             .join(" ") + "..."
                         : book.volumeInfo.title}
                     </h1>
-                    <div
-                      className={checkedOptState == "readOpt" ? "" : "addBtn"}
+                    <span
+                      className="addBtn"
                       onClick={(event) => {
                         event.preventDefault();
                       }}
                     >
-                      {checkedOptState == "readOpt" ? (
-                        <BookPopover
-                          id={book.id}
-                          volumeInfo={book.volumeInfo}
-                          trigger={"Edit bookshelf"}
-                        />
-                      ) : (
-                        "Add as read"
-                      )}
-                    </div>
+                      <BookPopover
+                        id={book.id}
+                        volumeInfo={book.volumeInfo}
+                        trigger={"Edit bookshelf"}
+                      />
+                    </span>
                   </BookCard>
                   <AlertDialog.Portal>
                     <BookModalOverlay />

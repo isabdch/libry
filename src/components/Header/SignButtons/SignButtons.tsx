@@ -1,12 +1,20 @@
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { Action, Dispatch } from "redux";
 import { auth, signInGoogle, signOutGoogle } from "../../../services/auth/auth";
 import { RootState } from "../../../store/types";
+import Link from "next/link";
 import Image from "next/image";
 import {
+  ModalAction,
+  ModalCancel,
+  ModalContent,
+  ModalDescription,
+  ModalOverlay,
+  ModalTitle,
+  ModalTrigger,
   SignInButtonComponent,
-  SignOutButtonComponent,
 } from "./SignButtonsStyle";
 import { FaGoogle } from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
@@ -20,28 +28,45 @@ export function SignButtons() {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       dispatch({ type: "SET_USER_ON", payload: user });
-      console.log(user);
     } else {
-      console.log("Nobody is signed in.");
       dispatch({ type: "SET_USER_OFF" });
     }
   });
 
   return isSignedIn ? (
-    <SignOutButtonComponent
-      title="Sign out"
-      className="signOutButton"
-      // onClick={signOutGoogle}
-    >
-      <Image
-        src={isSignedIn.photoURL}
-        className="profileImg"
-        alt="Profile image"
-        width="35px"
-        height="35px"
-      />
-      {isSignedIn.displayName} <BsXLg className="signOutIcon" />
-    </SignOutButtonComponent>
+    <AlertDialog.Root>
+      <ModalTrigger>
+        <Image
+          src={isSignedIn.photoURL}
+          className="profileImg"
+          alt="Profile image"
+          width="35px"
+          height="35px"
+        />
+        {isSignedIn.displayName} <BsXLg className="signOutIcon" />
+      </ModalTrigger>
+      <AlertDialog.Portal>
+        <ModalOverlay />
+        <ModalContent onCloseAutoFocus={(event) => event.preventDefault()}>
+          <ModalTitle>Sign out</ModalTitle>
+          <ModalDescription>
+            Are you sure you want to sign out?
+          </ModalDescription>
+          <div>
+            <ModalCancel>Cancel</ModalCancel>
+            <Link href="/" passHref>
+              <ModalAction
+                onClick={() => {
+                  signOutGoogle();
+                }}
+              >
+                Sign out
+              </ModalAction>
+            </Link>
+          </div>
+        </ModalContent>
+      </AlertDialog.Portal>
+    </AlertDialog.Root>
   ) : (
     <SignInButtonComponent title="Sign in" onClick={signInGoogle}>
       Sign in with Google <FaGoogle className="googleIcon" />

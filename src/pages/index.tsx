@@ -1,10 +1,8 @@
-import { onAuthStateChanged } from "firebase/auth";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BooksSection } from "../components/BooksSection/BooksSection";
 import { Main } from "../components/Main/Main";
 import { api } from "../services/api";
-import { auth, isSignedIn } from "../services/auth/auth";
 
 export default function Home() {
   const [books, setBooks] = useState([]);

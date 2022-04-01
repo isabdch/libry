@@ -1,6 +1,6 @@
 import { BookInfo, RootState } from "../../store/types";
 import { database } from "../../services/firebase/clientApp";
-import { doc, setDoc } from "firebase/firestore";
+import { deleteDoc, doc, setDoc } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import * as Popover from "@radix-ui/react-popover";
 import {
@@ -23,6 +23,35 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
 
   const userRef = doc(database, "users", isSignedIn ? isSignedIn.uid : "none");
 
+  function addBookToToReadBooks() {
+    setDoc(doc(userRef, "toReadBooks", `Book ${volumeInfo.title}`), {
+      id,
+      volumeInfo,
+    })
+      .then(() =>
+        console.log(
+          "Book added successfully to 'To Read' shelf in firestore." // do something visually
+        )
+      )
+      .catch((error) => error);
+
+    deleteDoc(doc(userRef, "readingBooks", `Book ${volumeInfo.title}`))
+      .then(() =>
+        console.log(
+          "Book removed successfully from 'Reading' shelf in firestore." // do something visually
+        )
+      )
+      .catch((error) => error);
+
+    deleteDoc(doc(userRef, "readBooks", `Book ${volumeInfo.title}`))
+      .then(() =>
+        console.log(
+          "Book removed successfully from 'Read' shelf in firestore." // do something visually
+        )
+      )
+      .catch((error) => error);
+  }
+
   return (
     <Popover.Root>
       <PopoverTrigger asChild={true}>
@@ -34,27 +63,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
           <span
             className="option"
             onClick={() => {
-              isSignedIn
-                ? setDoc(
-                    doc(
-                      userRef,
-                      "toReadBooks",
-                      `${new Date().getSeconds()}${new Date().getMinutes()}${new Date().getHours()}${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()} - ${
-                        volumeInfo.title
-                      }`
-                    ),
-                    {
-                      id,
-                      volumeInfo,
-                    }
-                  )
-                    .then(() =>
-                      console.log(
-                        "Book added successfully to 'To Read' shelf in firestore." // do something visually
-                      )
-                    )
-                    .catch((error) => error) // do something visually
-                : null; // do something visually
+              isSignedIn ? addBookToToReadBooks() : null; // do something visually
             }}
           >
             To read
@@ -66,13 +75,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             onClick={() => {
               isSignedIn
                 ? setDoc(
-                    doc(
-                      userRef,
-                      "readingBooks",
-                      `${new Date().getSeconds()}${new Date().getMinutes()}${new Date().getHours()}${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()} - ${
-                        volumeInfo.title
-                      }`
-                    ),
+                    doc(userRef, "readingBooks", `Book ${volumeInfo.title}`),
                     {
                       id,
                       volumeInfo,
@@ -95,19 +98,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             className="option"
             onClick={() => {
               isSignedIn
-                ? setDoc(
-                    doc(
-                      userRef,
-                      "readBooks",
-                      `${new Date().getSeconds()}${new Date().getMinutes()}${new Date().getHours()}${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()} - ${
-                        volumeInfo.title
-                      }`
-                    ),
-                    {
-                      id,
-                      volumeInfo,
-                    }
-                  )
+                ? setDoc(doc(userRef, "readBooks", `Book ${volumeInfo.title}`), {
+                    id,
+                    volumeInfo,
+                  })
                     .then(() =>
                       console.log(
                         "Book added successfully to 'Read' shelf in firestore."

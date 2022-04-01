@@ -67,24 +67,8 @@ export const BookCard = styled(AlertDialog.Trigger, {
 
   h1: {
     color: "$purple500",
-    fontSize: "1.1em",
-  },
-
-  ".addBtn": {
-    padding: "5px 20px",
-    borderRadius: "2rem",
-    backgroundColor: "$lilac100",
-    color: "$white500",
-    fontSize: "1.2em",
-    transition: ".2s",
-
-    "&:hover": {
-      backgroundColor: "$lilac80",
-    },
-
-    "&:active": {
-      backgroundColor: "$lilac100",
-    },
+    fontSize: "1.3em",
+    marginBottom: "auto",
   },
 
   "&:focus": {
