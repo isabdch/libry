@@ -153,7 +153,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                   changeCheckedOptState()
                 );
               } else {
-                toast.info("You have to be signed in to do this.", {
+                toast.info("You're not allowed to do this. Sign in to continue.", {
                   theme: "colored",
                 });
               }
@@ -171,7 +171,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                   changeCheckedOptState()
                 );
               } else {
-                toast.info("You have to be signed in to do this.", {
+                toast.info("You're not allowed to do this. Sign in to continue.", {
                   theme: "colored",
                 });
               }
@@ -189,7 +189,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                   changeCheckedOptState()
                 );
               } else {
-                toast.info("You have to be signed in to do this.", {
+                toast.info("You're not allowed to do this. Sign in to continue.", {
                   theme: "colored",
                 });
               }
