@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Action, Dispatch } from "redux";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   collection,
   deleteDoc,
@@ -32,6 +32,8 @@ import { BsXLg } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
 
 export function BookshelfMain() {
+  const ref = useRef(null);
+
   const [books, setBooks] = useState<DocumentData>([]);
 
   const dispatch = useDispatch<Dispatch<Action>>();
@@ -44,53 +46,62 @@ export function BookshelfMain() {
     return state.isUserSignedIn;
   });
 
-  const userRef = doc(database, "users", isSignedIn ? isSignedIn.uid : "none");
-
   function changeCheckedOptState() {
     if (checkedOptState == "toReadOpt") {
-      dispatch({ type: "READ" });
+      dispatch({ type: "NONE" });
       setTimeout(() => {
         dispatch({ type: "TO_READ" });
       }, 0.1);
     } else if (checkedOptState == "readingOpt") {
-      dispatch({ type: "TO_READ" });
+      dispatch({ type: "NONE" });
       setTimeout(() => {
         dispatch({ type: "READING" });
       }, 0.1);
     } else if (checkedOptState == "readOpt") {
-      dispatch({ type: "TO_READ" });
+      dispatch({ type: "NONE" });
       setTimeout(() => {
         dispatch({ type: "READ" });
       }, 0.1);
     }
   }
 
-  function removeBook(bookTitle: string) {
-    if (checkedOptState == "toReadOpt") {
-      deleteDoc(doc(userRef, "toReadBooks", `Book ${bookTitle}`))
+  async function removeBook(bookTitle: string) {
+    const userRef = doc(
+      database,
+      "users",
+      isSignedIn ? isSignedIn.uid : "none"
+    );
+
+    const collectionId = () => {
+      if (checkedOptState == "toReadOpt") {
+        return "toReadBooks";
+      } else if (checkedOptState == "readingOpt") {
+        return "readingBooks";
+      } else if (checkedOptState == "readOpt") {
+        return "readBooks";
+      } else if (checkedOptState == "any") {
+        return "any";
+      }
+    };
+
+    const q = query(
+      collection(userRef, collectionId()),
+      where("title", "==", bookTitle)
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((document) => {
+      deleteDoc(document.ref)
         .then(() =>
           console.log(
-            `Book removed successfully from 'toReadBooks' shelf in firestore.` // do something visually
+            `Book ${
+              document.data().title
+            } removed successfully from '${collectionId()}' shelf in firestore.` // do something visually
           )
         )
         .catch((error) => error);
-    } else if (checkedOptState == "readingOpt") {
-      deleteDoc(doc(userRef, "readingBooks", `Book ${bookTitle}`))
-        .then(() =>
-          console.log(
-            `Book removed successfully from 'readingBooks' shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
-    } else if (checkedOptState == "readOpt") {
-      deleteDoc(doc(userRef, "readBooks", `Book ${bookTitle}`))
-        .then(() =>
-          console.log(
-            `Book removed successfully from 'readBooks' shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
-    }
+    });
   }
 
   useEffect(() => {
@@ -126,6 +137,7 @@ export function BookshelfMain() {
       querySnapshot.forEach((doc: DocumentData) => {
         const data: DocumentData = doc.data();
         items.push(data);
+        items.sort((a, b) => Number(b.date) - Number(a.date));
       });
     }
 
@@ -170,8 +182,9 @@ export function BookshelfMain() {
                       className="trashBtn"
                       onClick={(event) => {
                         event.preventDefault();
-                        removeBook(book.volumeInfo.title);
-                        changeCheckedOptState();
+                        removeBook(book.volumeInfo.title).then(() =>
+                          changeCheckedOptState()
+                        );
                       }}
                     >
                       <FaTrashAlt />
