@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Action, Dispatch } from "redux";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   collection,
   deleteDoc,
@@ -30,10 +30,9 @@ import { BookPopover } from "../BookPopover/BookPopover";
 import { BsFillReplyFill } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
 import { FaTrashAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export function BookshelfMain() {
-  const ref = useRef(null);
-
   const [books, setBooks] = useState<DocumentData>([]);
 
   const dispatch = useDispatch<Dispatch<Action>>();
@@ -92,15 +91,23 @@ export function BookshelfMain() {
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((document) => {
-      deleteDoc(document.ref)
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from '${collectionId()}' shelf in firestore.` // do something visually
+      try {
+        deleteDoc(document.ref).then(() =>
+          toast.info(
+            `${document.data().title} was removed from your bookshelf.`,
+            {
+              theme: "colored",
+            }
           )
-        )
-        .catch((error) => error);
+        );
+      } catch {
+        toast.error(
+          `Something went wrong. It was not possible to remove ${
+            document.data().title
+          } from your bookshelf.`,
+          { theme: "colored" }
+        );
+      }
     });
   }
 
@@ -148,7 +155,6 @@ export function BookshelfMain() {
 
   return (
     <BookshelfMainComponent>
-
       <Link href="/" passHref>
         <button className="goBack">
           <BsFillReplyFill /> Home
@@ -281,7 +287,7 @@ export function BookshelfMain() {
         ) : (
           <p>Nothing here</p>
         )}
-      </section>  
+      </section>
     </BookshelfMainComponent>
   );
 }

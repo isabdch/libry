@@ -152,6 +152,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 addBookBookshelf("toReadBooks").then(() =>
                   changeCheckedOptState()
                 );
+              } else {
+                toast.info("You have to be signed in to do this.", {
+                  theme: "colored",
+                });
               }
             }}
           >
@@ -166,6 +170,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 addBookBookshelf("readingBooks").then(() =>
                   changeCheckedOptState()
                 );
+              } else {
+                toast.info("You have to be signed in to do this.", {
+                  theme: "colored",
+                });
               }
             }}
           >
@@ -180,6 +188,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 addBookBookshelf("readBooks").then(() =>
                   changeCheckedOptState()
                 );
+              } else {
+                toast.info("You have to be signed in to do this.", {
+                  theme: "colored",
+                });
               }
             }}
           >

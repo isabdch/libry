@@ -103,4 +103,14 @@ export const globalStyles = globalCss({
     backgroundColor: "$purple200",
     color: "$white500",
   },
+
+  ".Toastify__toast-theme--colored.Toastify__toast--warning": {
+    backgroundColor: "$purple200",
+    color: "$white500",
+  },
+
+  ".Toastify__toast-theme--colored.Toastify__toast--info": {
+    backgroundColor: "$purple200",
+    color: "$white500",
+  },
 });
