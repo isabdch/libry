@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         pauseOnFocusLoss={false}
         draggable
         pauseOnHover
-        limit={6}
+        limit={3}
       />
       <Component {...pageProps} />
     </Provider>
