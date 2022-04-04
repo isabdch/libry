@@ -55,51 +55,123 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
     }
   }
 
-  async function addBookBookshelf(
-    add: string,
-    remove1: string,
-    remove2: string
-  ) {
+  async function addBookBookshelf(add: string) {
     const userRef = doc(
       database,
       "users",
       isSignedIn ? isSignedIn.uid : "none"
     );
 
-    const q = query(
-      collection(userRef, add),
+    const qToRead = query(
+      collection(userRef, "toReadBooks"),
       where("title", "==", volumeInfo.title)
     );
 
-    const querySnapshot = await getDocs(q);
+    const qReading = query(
+      collection(userRef, "readingBooks"),
+      where("title", "==", volumeInfo.title)
+    );
 
-    querySnapshot.forEach((document) => {
-      deleteDoc(doc(userRef, remove1, document.id))
+    const qRead = query(
+      collection(userRef, "readBooks"),
+      where("title", "==", volumeInfo.title)
+    );
+
+    const querySnapshotToRead = await getDocs(qToRead);
+    const querySnapshotReading = await getDocs(qReading);
+    const querySnapshotRead = await getDocs(qRead);
+
+    querySnapshotToRead.forEach((document) => {
+      deleteDoc(doc(userRef, "toReadBooks", document.id))
         .then(() =>
           console.log(
             `Book ${
               document.data().title
-            } removed successfully from '${remove1}' shelf in firestore.` // do something visually
+            } removed successfully from "toReadBooks" shelf in firestore.` // do something visually
           )
         )
         .catch((error) => error);
 
-      deleteDoc(doc(userRef, remove2, document.id))
+      deleteDoc(doc(userRef, "readingBooks", document.id))
         .then(() =>
           console.log(
             `Book ${
               document.data().title
-            } removed successfully from '${remove2}' shelf in firestore.` // do something visually
+            } removed successfully from "readingBooks" shelf in firestore.` // do something visually
           )
         )
         .catch((error) => error);
 
-      deleteDoc(doc(userRef, add, document.id))
+      deleteDoc(doc(userRef, "readBooks", document.id))
         .then(() =>
           console.log(
             `Book ${
               document.data().title
-            } removed successfully from '${add}' shelf in firestore.` // do something visually
+            } removed successfully from "readBooks" shelf in firestore.` // do something visually
+          )
+        )
+        .catch((error) => error);
+    });
+
+    querySnapshotReading.forEach((document) => {
+      deleteDoc(doc(userRef, "toReadBooks", document.id))
+        .then(() =>
+          console.log(
+            `Book ${
+              document.data().title
+            } removed successfully from "toReadBooks" shelf in firestore.` // do something visually
+          )
+        )
+        .catch((error) => error);
+
+      deleteDoc(doc(userRef, "readingBooks", document.id))
+        .then(() =>
+          console.log(
+            `Book ${
+              document.data().title
+            } removed successfully from "readingBooks" shelf in firestore.` // do something visually
+          )
+        )
+        .catch((error) => error);
+
+      deleteDoc(doc(userRef, "readBooks", document.id))
+        .then(() =>
+          console.log(
+            `Book ${
+              document.data().title
+            } removed successfully from "readBooks" shelf in firestore.` // do something visually
+          )
+        )
+        .catch((error) => error);
+    });
+
+    querySnapshotRead.forEach((document) => {
+      deleteDoc(doc(userRef, "toReadBooks", document.id))
+        .then(() =>
+          console.log(
+            `Book ${
+              document.data().title
+            } removed successfully from "toReadBooks" shelf in firestore.` // do something visually
+          )
+        )
+        .catch((error) => error);
+
+      deleteDoc(doc(userRef, "readingBooks", document.id))
+        .then(() =>
+          console.log(
+            `Book ${
+              document.data().title
+            } removed successfully from "readingBooks" shelf in firestore.` // do something visually
+          )
+        )
+        .catch((error) => error);
+
+      deleteDoc(doc(userRef, "readBooks", document.id))
+        .then(() =>
+          console.log(
+            `Book ${
+              document.data().title
+            } removed successfully from "readBooks" shelf in firestore.` // do something visually
           )
         )
         .catch((error) => error);
@@ -121,13 +193,6 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
         id,
         volumeInfo,
         title: volumeInfo.title,
-        date: `${new Date().getFullYear()}${("0" + new Date().getMonth()).slice(
-          -2
-        )}${("0" + new Date().getDate()).slice(-2)}${(
-          "0" + new Date().getHours()
-        ).slice(-2)}${("0" + new Date().getMinutes()).slice(-2)}${(
-          "0" + new Date().getSeconds()
-        ).slice(-2)}`,
       },
       { merge: true }
     )
@@ -151,11 +216,9 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             className="option"
             onClick={() => {
               if (isSignedIn) {
-                addBookBookshelf(
-                  "toReadBooks",
-                  "readingBooks",
-                  "readBooks"
-                ).then(() => changeCheckedOptState());
+                addBookBookshelf("toReadBooks").then(() =>
+                  changeCheckedOptState()
+                );
               }
             }}
           >
@@ -167,11 +230,9 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             className="option center"
             onClick={() => {
               if (isSignedIn) {
-                addBookBookshelf(
-                  "readingBooks",
-                  "toReadBooks",
-                  "readBooks"
-                ).then(() => changeCheckedOptState());
+                addBookBookshelf("readingBooks").then(() =>
+                  changeCheckedOptState()
+                );
               }
             }}
           >
@@ -183,11 +244,9 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
             className="option"
             onClick={() => {
               if (isSignedIn) {
-                addBookBookshelf(
-                  "readBooks",
-                  "toReadBooks",
-                  "readingBooks"
-                ).then(() => changeCheckedOptState());
+                addBookBookshelf("readBooks").then(() =>
+                  changeCheckedOptState()
+                );
               }
             }}
           >
