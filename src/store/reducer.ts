@@ -31,6 +31,8 @@ function checkOptionReducer(
       return (state = "readingOpt");
     case "READ":
       return (state = "readOpt");
+    case "NONE":
+      return (state = "any");
     default:
       return state;
   }

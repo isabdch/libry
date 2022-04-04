@@ -109,6 +109,8 @@ export function BookshelfMain() {
         return "readingBooks";
       } else if (checkedOptState == "readOpt") {
         return "readBooks";
+      } else if (checkedOptState == "any") {
+        return "any";
       }
     };
 

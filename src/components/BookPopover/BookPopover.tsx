@@ -32,20 +32,20 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
 
   function changeCheckedOptState() {
     if (checkedOptState == "toReadOpt") {
-      dispatch({ type: "READ" });
+      dispatch({ type: "NONE" });
       setTimeout(() => {
         dispatch({ type: "TO_READ" });
-      }, 0.1);
+      }, 0.01);
     } else if (checkedOptState == "readingOpt") {
-      dispatch({ type: "TO_READ" });
+      dispatch({ type: "NONE" });
       setTimeout(() => {
         dispatch({ type: "READING" });
-      }, 0.1);
+      }, 0.01);
     } else if (checkedOptState == "readOpt") {
-      dispatch({ type: "TO_READ" });
+      dispatch({ type: "NONE" });
       setTimeout(() => {
         dispatch({ type: "READ" });
-      }, 0.1);
+      }, 0.01);
     }
   }
 
