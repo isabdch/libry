@@ -18,6 +18,7 @@ import {
 } from "./SignButtonsStyle";
 import { FaGoogle } from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 export function SignButtons() {
   const isSignedIn = useSelector((state: RootState) => {
@@ -58,6 +59,7 @@ export function SignButtons() {
               <ModalAction
                 onClick={() => {
                   signOutGoogle();
+                  toast.info("You're signed out.", { theme: "colored" });
                 }}
               >
                 Sign out
@@ -68,7 +70,12 @@ export function SignButtons() {
       </AlertDialog.Portal>
     </AlertDialog.Root>
   ) : (
-    <SignInButtonComponent title="Sign in" onClick={signInGoogle}>
+    <SignInButtonComponent
+      title="Sign in"
+      onClick={() => {
+        signInGoogle();
+      }}
+    >
       Sign in with Google <FaGoogle className="googleIcon" />
     </SignInButtonComponent>
   );

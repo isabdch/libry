@@ -133,7 +133,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
   },
 
   ".content": {
-    height: "50vh",
+    height: "51vh",
     width: "70%",
     flexCenterJC: "space-between",
     flexDirection: "column",
