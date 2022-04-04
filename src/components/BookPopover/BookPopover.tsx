@@ -58,8 +58,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
   async function addBookBookshelf(
     add: string,
     remove1: string,
-    remove2: string,
-    remove3: string
+    remove2: string
   ) {
     const userRef = doc(
       database,
@@ -67,20 +66,8 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
       isSignedIn ? isSignedIn.uid : "none"
     );
 
-    const collectionId = () => {
-      if (checkedOptState == "toReadOpt") {
-        return "toReadBooks";
-      } else if (checkedOptState == "readingOpt") {
-        return "readingBooks";
-      } else if (checkedOptState == "readOpt") {
-        return "readBooks";
-      } else if (checkedOptState == "any") {
-        return "any";
-      }
-    };
-
     const q = query(
-      collection(userRef, collectionId()),
+      collection(userRef, add),
       where("title", "==", volumeInfo.title)
     );
 
@@ -107,12 +94,12 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
         )
         .catch((error) => error);
 
-      deleteDoc(doc(userRef, remove3, document.id))
+      deleteDoc(doc(userRef, add, document.id))
         .then(() =>
           console.log(
             `Book ${
               document.data().title
-            } removed successfully from '${remove3}' shelf in firestore.` // do something visually
+            } removed successfully from '${add}' shelf in firestore.` // do something visually
           )
         )
         .catch((error) => error);
@@ -141,7 +128,8 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
         ).slice(-2)}${("0" + new Date().getMinutes()).slice(-2)}${(
           "0" + new Date().getSeconds()
         ).slice(-2)}`,
-      }
+      },
+      { merge: true }
     )
       .then(() =>
         console.log(
@@ -166,8 +154,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 addBookBookshelf(
                   "toReadBooks",
                   "readingBooks",
-                  "readBooks",
-                  "toReadBooks"
+                  "readBooks"
                 ).then(() => changeCheckedOptState());
               }
             }}
@@ -183,8 +170,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 addBookBookshelf(
                   "readingBooks",
                   "toReadBooks",
-                  "readBooks",
-                  "readingBooks"
+                  "readBooks"
                 ).then(() => changeCheckedOptState());
               }
             }}
@@ -200,8 +186,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 addBookBookshelf(
                   "readBooks",
                   "toReadBooks",
-                  "readingBooks",
-                  "readBooks"
+                  "readingBooks"
                 ).then(() => changeCheckedOptState());
               }
             }}
