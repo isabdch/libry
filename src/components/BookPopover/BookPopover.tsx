@@ -1,5 +1,6 @@
 import { BookInfo, RootState } from "../../store/types";
 import { database } from "../../services/firebase/clientApp";
+import { toast } from "react-toastify";
 import {
   collection,
   deleteDoc,
@@ -82,126 +83,58 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
     const querySnapshotRead = await getDocs(qRead);
 
     querySnapshotToRead.forEach((document) => {
-      deleteDoc(doc(userRef, "toReadBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "toReadBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "toReadBooks", document.id));
 
-      deleteDoc(doc(userRef, "readingBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "readingBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "readingBooks", document.id));
 
-      deleteDoc(doc(userRef, "readBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "readBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "readBooks", document.id));
     });
 
     querySnapshotReading.forEach((document) => {
-      deleteDoc(doc(userRef, "toReadBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "toReadBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "toReadBooks", document.id));
 
-      deleteDoc(doc(userRef, "readingBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "readingBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "readingBooks", document.id));
 
-      deleteDoc(doc(userRef, "readBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "readBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "readBooks", document.id));
     });
 
     querySnapshotRead.forEach((document) => {
-      deleteDoc(doc(userRef, "toReadBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "toReadBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "toReadBooks", document.id));
 
-      deleteDoc(doc(userRef, "readingBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "readingBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "readingBooks", document.id));
 
-      deleteDoc(doc(userRef, "readBooks", document.id))
-        .then(() =>
-          console.log(
-            `Book ${
-              document.data().title
-            } removed successfully from "readBooks" shelf in firestore.` // do something visually
-          )
-        )
-        .catch((error) => error);
+      deleteDoc(doc(userRef, "readBooks", document.id));
     });
 
-    await setDoc(
-      doc(
-        userRef,
-        add,
-        `${new Date().getFullYear()}${("0" + new Date().getMonth()).slice(
-          -2
-        )}${("0" + new Date().getDate()).slice(-2)}${(
-          "0" + new Date().getHours()
-        ).slice(-2)}${("0" + new Date().getMinutes()).slice(-2)}${(
-          "0" + new Date().getSeconds()
-        ).slice(-2)} - ${volumeInfo.title}`
-      ),
-      {
-        id,
-        volumeInfo,
-        title: volumeInfo.title,
-      },
-      { merge: true }
-    )
-      .then(() =>
-        console.log(
-          `Book added successfully to '${add}' shelf in firestore.` // do something visually
-        )
-      )
-      .catch((error) => error);
+    try {
+      await setDoc(
+        doc(
+          userRef,
+          add,
+          `${new Date().getFullYear()}${("0" + new Date().getMonth()).slice(
+            -2
+          )}${("0" + new Date().getDate()).slice(-2)}${(
+            "0" + new Date().getHours()
+          ).slice(-2)}${("0" + new Date().getMinutes()).slice(-2)}${(
+            "0" + new Date().getSeconds()
+          ).slice(-2)} - ${volumeInfo.title}`
+        ),
+        {
+          id,
+          volumeInfo,
+          title: volumeInfo.title,
+        },
+        { merge: true }
+      ).then(() => {
+        toast.success(`${volumeInfo.title} added to your bookshelf.`, {
+          theme: "colored",
+        });
+      });
+    } catch {
+      toast.error(
+        `Something went wrong. It was not possible to add ${volumeInfo.title} to your bookshelf.`
+      );
+    }
   }
 
   return (

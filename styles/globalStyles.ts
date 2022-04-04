@@ -60,4 +60,47 @@ export const globalStyles = globalCss({
   li: {
     listStyleType: "none",
   },
+
+  ".Toastify__toast-container": {
+    position: "fixed",
+    width: "30vw",
+    top: 0,
+    zIndex: 9999,
+    margin: "25px",
+    flexCenterJC: "center",
+    flexDirection: "column",
+    gap: "30px",
+
+    "@min1440px": {
+      fontSize: "1vw",
+    },
+
+    "@max1024px": {
+      width: "45vw",
+    },
+
+    "@max768px": {
+      width: "75vw",
+    },
+  },
+
+  ".Toastify__toast": {
+    width: "100%",
+    backgroundColor: "$white500",
+    color: "$purple200",
+    padding: "10px 20px",
+    flexCenterJC: "center",
+    cursor: "pointer",
+    borderRadius: "1em",
+  },
+
+  ".Toastify__toast-theme--colored.Toastify__toast--success": {
+    backgroundColor: "$purple200",
+    color: "$white500",
+  },
+
+  ".Toastify__toast-theme--colored.Toastify__toast--error": {
+    backgroundColor: "$purple200",
+    color: "$white500",
+  },
 });

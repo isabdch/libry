@@ -20,10 +20,11 @@ export type BookInfo = {
 export type Book = {
   id: string;
   volumeInfo: BookInfo;
+  title?: string;
 };
 
 export type BooksState = {
   books: Book[];
 };
 
-export type RootState = ReturnType<typeof allReducers>
+export type RootState = ReturnType<typeof allReducers>;

@@ -1,4 +1,5 @@
 import { keyframes, styled } from "../../../stitches.config";
+import { ToastContainer, toast } from 'react-toastify';
 import * as Popover from "@radix-ui/react-popover";
 
 const slideUpAndFade = keyframes({
@@ -62,6 +63,11 @@ export const PopoverContent = styled(Popover.Content, {
       '&[data-side="left"]': { animationName: slideRightAndFade },
     },
   },
+
+  "@min1440px": {
+    width: "10vw",
+    fontSize: "1vw",
+  },
 });
 
 export const PopoverArrow = styled(Popover.Arrow, {
@@ -92,3 +98,5 @@ export const PopoverClose = styled(Popover.Close, {
     },
   },
 });
+
+

@@ -84,6 +84,10 @@ export const BookCard = styled(AlertDialog.Trigger, {
       "&:hover": {
         color: "$purple200",
       },
+
+      svg: {
+        pointerEvents: "none",
+      },
     },
   },
 

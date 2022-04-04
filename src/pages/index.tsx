@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { BooksSection } from "../components/BooksSection/BooksSection";
 import { Main } from "../components/Main/Main";
 import { api } from "../services/api";
+import { Book } from "../store/types";
 
 export default function Home() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<Book[]>([]);
   const [inputValue, setInputValue] = useState("");
 
   
