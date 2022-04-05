@@ -7,7 +7,7 @@ export const HeaderComponent = styled("header", {
   backgroundColor: "$lilac65",
   position: "sticky",
   top: 0,
-  zIndex: 1,
+  zIndex: 2,
 
   ".container": {
     flexCenterJC: "space-between",

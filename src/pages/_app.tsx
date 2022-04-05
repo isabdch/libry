@@ -2,8 +2,9 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { allReducers } from "../store/reducer";
 import { Header } from "../components/Header/Header";
-import { ToastContainer } from "react-toastify";
 import { globalStyles } from "../../styles/globalStyles";
+import { GoUpArrow } from "../components/GoUpArrow/GoUpArrow";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
@@ -27,6 +28,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         pauseOnHover
         limit={3}
       />
+
+      <GoUpArrow />
 
       <Component {...pageProps} />
     </Provider>

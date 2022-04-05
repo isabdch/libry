@@ -5,6 +5,7 @@ import { BookshelfHeaderComponent } from "./BookshelfHeaderStyles";
 
 export function BookshelfHeader() {
   const dispatch = useDispatch<Dispatch<Action>>();
+
   const checkedOptState = useSelector((state: RootState) => {
     return state.checkOpt;
   });
