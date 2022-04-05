@@ -74,6 +74,7 @@ export const MainComponent = styled("main", {
 
   "@min1440px": {
     fontSize: "1.45vw",
+    height: "80vh",
   },
 
   "@max1024px": {
