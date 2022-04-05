@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { allReducers } from "../store/reducer";
+import Link from "next/link";
 import { Header } from "../components/Header/Header";
 import { ToastContainer } from "react-toastify";
 import { globalStyles } from "../../styles/globalStyles";
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <Provider store={store}>
       <Header />
+
       <ToastContainer
         position="top-left"
         autoClose={3000}
@@ -26,7 +28,16 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         pauseOnHover
         limit={3}
       />
+
       <Component {...pageProps} />
+
+      <p className="devBy">
+        developed by{" "}
+        <Link href="https://github.com/isabdch">
+          <a target="_blank">isabdch</a>
+        </Link>{" "}
+        - 2022
+      </p>
     </Provider>
   );
 }
