@@ -6,6 +6,7 @@ import { globalStyles } from "../../styles/globalStyles";
 import { GoUpArrow } from "../components/GoUpArrow/GoUpArrow";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   globalStyles();
@@ -32,6 +33,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <GoUpArrow />
 
       <Component {...pageProps} />
+
+      <div className="devBy">
+        <Link href="https://github.com/isabdch">
+          <a target="_blank">developed by isabdch</a>
+        </Link>
+      </div>
     </Provider>
   );
 }

@@ -113,4 +113,20 @@ export const globalStyles = globalCss({
     backgroundColor: "$purple200",
     color: "$white500",
   },
+
+  ".devBy": {
+    textAlign: "center",
+    width: "100%",
+    fontSize: "0.75em",
+    color: "$purple100",
+    position: "fixed",
+    bottom: 0,
+    opacity: "0.5",
+    transition: ".2s",
+
+    "&:hover": {
+      opacity: 1,
+      transform: "scale(1.1)",
+    },
+  },
 });
