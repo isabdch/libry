@@ -1,7 +1,6 @@
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { allReducers } from "../store/reducer";
-import Link from "next/link";
 import { Header } from "../components/Header/Header";
 import { ToastContainer } from "react-toastify";
 import { globalStyles } from "../../styles/globalStyles";
