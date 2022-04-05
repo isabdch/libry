@@ -30,14 +30,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       />
 
       <Component {...pageProps} />
-
-      <p className="devBy">
-        developed by{" "}
-        <Link href="https://github.com/isabdch">
-          <a target="_blank">isabdch</a>
-        </Link>{" "}
-        - 2022
-      </p>
     </Provider>
   );
 }
