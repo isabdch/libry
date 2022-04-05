@@ -161,7 +161,7 @@ export function BookshelfMain() {
         </button>
       </Link>
       <section>
-        {books ? (
+        {books.length != 0 ? (
           books.map((book: Book) => {
             return (
               <AlertDialog.Root key={book.id} onOpenChange={() => open}>
@@ -285,7 +285,7 @@ export function BookshelfMain() {
             );
           })
         ) : (
-          <p>Nothing here</p>
+          <p className="nothingHereMsg">Nothing here</p>
         )}
       </section>
     </BookshelfMainComponent>

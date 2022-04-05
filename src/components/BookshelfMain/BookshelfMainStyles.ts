@@ -39,6 +39,19 @@ export const BookshelfMainComponent = styled("main", {
     flexCenterAI: "",
     flexWrap: "wrap",
     padding: "30px",
+
+    ".nothingHereMsg": {
+      position: "absolute",
+      top: "300%",
+      left: "50%",
+      transform: "translateX(-50%)",
+      color: "$lilac100",
+      fontSize: "1.1em",
+
+      "@min1440px": {
+        fontSize: "1.2vw",
+      },
+    },
   },
 });
 
