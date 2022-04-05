@@ -59,6 +59,7 @@ export function SignButtons() {
               <ModalAction
                 onClick={() => {
                   signOutGoogle();
+                  localStorage.removeItem("user-accessToken");
                   toast.info("You're signed out.", { theme: "colored" });
                 }}
               >
