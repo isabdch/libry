@@ -46,10 +46,9 @@ export const BookshelfMainComponent = styled("main", {
       left: "50%",
       transform: "translateX(-50%)",
       color: "$lilac100",
-      fontSize: "1.1em",
 
       "@min1440px": {
-        fontSize: "1.2vw",
+        fontSize: "1vw",
       },
     },
   },
@@ -167,7 +166,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
       height: "220px",
       width: "170px",
       borderRadius: "1em",
-      boxShadow: "-3px 3px 10px #5A189A",
+      boxShadow: "-1px 1px 10px #9D4EDD",
 
       img: {
         borderRadius: "1em",

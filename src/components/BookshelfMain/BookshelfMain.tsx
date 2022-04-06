@@ -287,7 +287,7 @@ export function BookshelfMain() {
             );
           })
         ) : (
-          <p className="nothingHereMsg">Nothing here</p>
+          <p className="nothingHereMsg">-- Nothing here --</p>
         )}
       </section>
     </BookshelfMainComponent>

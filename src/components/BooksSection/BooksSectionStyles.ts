@@ -22,6 +22,17 @@ export const BooksSectionContainer = styled("div", {
   borderTop: "1px solid $lilac80",
   flexCenterAI: "",
   flexWrap: "wrap",
+
+  ".nothingFoundMsg": {
+    margin: "30vh 40.5vw",
+    color: "$lilac100",
+    width: "200px",
+    textAlign: "center",
+
+    "@min1440px": {
+      fontSize: "1vw",
+    },
+  },
 });
 
 export const BookCard = styled(AlertDialog.Trigger, {
@@ -116,7 +127,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
       height: "220px",
       width: "170px",
       borderRadius: "1em",
-      boxShadow: "-3px 3px 10px #5A189A",
+      boxShadow: "-1px 1px 10px #9D4EDD",
 
       img: {
         borderRadius: "1em",

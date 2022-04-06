@@ -123,6 +123,13 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
           id,
           volumeInfo,
           title: volumeInfo.title,
+          date: `${new Date().getFullYear()}${(
+            "0" + new Date().getMonth()
+          ).slice(-2)}${("0" + new Date().getDate()).slice(-2)}${(
+            "0" + new Date().getHours()
+          ).slice(-2)}${("0" + new Date().getMinutes()).slice(-2)}${(
+            "0" + new Date().getSeconds()
+          ).slice(-2)}`,
         },
         { merge: true }
       ).then(() => {
@@ -153,9 +160,12 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                   changeCheckedOptState()
                 );
               } else {
-                toast.info("You're not allowed to do this. Sign in to continue.", {
-                  theme: "colored",
-                });
+                toast.info(
+                  "You're not allowed to do this. Sign in to continue.",
+                  {
+                    theme: "colored",
+                  }
+                );
               }
             }}
           >
@@ -171,9 +181,12 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                   changeCheckedOptState()
                 );
               } else {
-                toast.info("You're not allowed to do this. Sign in to continue.", {
-                  theme: "colored",
-                });
+                toast.info(
+                  "You're not allowed to do this. Sign in to continue.",
+                  {
+                    theme: "colored",
+                  }
+                );
               }
             }}
           >
@@ -189,9 +202,12 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                   changeCheckedOptState()
                 );
               } else {
-                toast.info("You're not allowed to do this. Sign in to continue.", {
-                  theme: "colored",
-                });
+                toast.info(
+                  "You're not allowed to do this. Sign in to continue.",
+                  {
+                    theme: "colored",
+                  }
+                );
               }
             }}
           >

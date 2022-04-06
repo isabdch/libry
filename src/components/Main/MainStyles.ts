@@ -29,17 +29,18 @@ export const MainComponent = styled("main", {
       width: "fit-content",
       borderRadius: "2em 2em 2em 2em",
 
+      "&:focus-within": {
+        outline: "2px solid $lilac100",
+      },
+
       input: {
-        padding: "13px 250px",
-        paddingLeft: "15px",
+        width: "33vw",
+        padding: "13px 15px",
         border: "none",
         borderRadius: "2em 0em 0em 2em",
         fontSize: "0.8em",
         color: "$purple500",
-
-        "&:focus": {
-          outline: "1px solid $lilac100",
-        },
+        outline: "none",
 
         "&::placeholder": {
           color: "$lilac100",
@@ -95,8 +96,8 @@ export const MainComponent = styled("main", {
         width: "100%",
 
         input: {
-          padding: "10px 15vw",
-          paddingLeft: "15px",
+          width: "50vw",
+          padding: "10px 15px",
         },
 
         button: {
@@ -112,16 +113,6 @@ export const MainComponent = styled("main", {
 
     ".searchSection": {
       textAlign: "center",
-    },
-  },
-
-  "@max375px": {
-    form: {
-      input: {
-        padding: "10px",
-        width: "50vw",
-        paddingLeft: "15px",
-      },
     },
   },
 });
