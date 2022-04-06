@@ -271,11 +271,13 @@ export function BookshelfMain() {
                           >
                             <FaTrashAlt />
                           </span>
-                          <BookPopover
-                            id={book.id}
-                            volumeInfo={book.volumeInfo}
-                            trigger={"Edit bookshelf"}
-                          />
+                          <span>
+                            <BookPopover
+                              id={book.id}
+                              volumeInfo={book.volumeInfo}
+                              trigger={"Edit bookshelf"}
+                            />
+                          </span>
                         </div>
                       </BookModalAction>
                     </div>

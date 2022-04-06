@@ -119,7 +119,7 @@ export function BooksSection({ books }: BooksState) {
                 </AlertDialog.Root>
               );
             })
-          : "Nothing found."}
+          : "Nothing found"}
       </BooksSectionContainer>
     </BooksSectionComponent>
   );
