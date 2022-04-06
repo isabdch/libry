@@ -12,7 +12,7 @@ const contentShow = keyframes({
 });
 
 export const SignInButtonComponent = styled("button", {
-  width: "18vw",
+  width: "17vw",
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
@@ -57,7 +57,7 @@ export const SignInButtonComponent = styled("button", {
 });
 
 export const ModalTrigger = styled(AlertDialog.Trigger, {
-  width: "18vw",
+  width: "17vw",
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
