@@ -32,15 +32,9 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    background: "$lilac50 no-repeat fixed center",
+    background: "$lighterColor no-repeat fixed center",
     backgroundSize: "cover",
     overflowX: "hidden",
-
-    "@max1024px": {
-      background:
-        "$lilac50 url('./images/wallpaper.svg') no-repeat fixed center",
-      backgroundSize: "cover",
-    },
   },
 
   button: {
@@ -87,7 +81,7 @@ export const globalStyles = globalCss({
   ".Toastify__toast": {
     width: "100%",
     backgroundColor: "$white500",
-    color: "$purple200",
+    color: "$darkerColor",
     padding: "10px 20px",
     flexCenterJC: "center",
     cursor: "pointer",
@@ -95,22 +89,22 @@ export const globalStyles = globalCss({
   },
 
   ".Toastify__toast-theme--colored.Toastify__toast--success": {
-    backgroundColor: "$purple200",
+    backgroundColor: "$darkerColor",
     color: "$white500",
   },
 
   ".Toastify__toast-theme--colored.Toastify__toast--error": {
-    backgroundColor: "$purple200",
+    backgroundColor: "$darkerColor",
     color: "$white500",
   },
 
   ".Toastify__toast-theme--colored.Toastify__toast--warning": {
-    backgroundColor: "$purple200",
+    backgroundColor: "$darkerColor",
     color: "$white500",
   },
 
   ".Toastify__toast-theme--colored.Toastify__toast--info": {
-    backgroundColor: "$purple200",
+    backgroundColor: "$darkerColor",
     color: "$white500",
   },
 
@@ -118,7 +112,7 @@ export const globalStyles = globalCss({
     textAlign: "center",
     width: "100%",
     fontSize: "0.75em",
-    color: "$purple100",
+    color: "$darkColor",
     position: "fixed",
     bottom: 0,
     opacity: "0.5",

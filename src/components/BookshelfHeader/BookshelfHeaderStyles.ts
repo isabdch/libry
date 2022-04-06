@@ -3,7 +3,7 @@ import { styled } from "../../../stitches.config";
 export const BookshelfHeaderComponent = styled("header", {
   width: "100%",
   height: "60px",
-  backgroundColor: "$lilac80",
+  backgroundColor: "$mediumColor",
   color: "#FFFFFFB3",
   flexCenterJC: "space-evenly",
   fontSize: "1.1em",
@@ -18,19 +18,19 @@ export const BookshelfHeaderComponent = styled("header", {
   },
 
   "#currentlyReading": {
-    borderLeft: "1px solid $purple100",
-    borderRight: "1px solid $purple100",
+    borderLeft: "1px solid $darkColor",
+    borderRight: "1px solid $darkColor",
     width: "40%",
     height: "70%",
     flexCenterJC: "center",
   },
 
   ".checked": {
-    color: "$purple200",
+    color: "$moreDarkColor",
     fontWeight: "bold",
 
     "&:hover": {
-      color: "$purple500",
+      color: "$darkerColor",
     },
   },
 

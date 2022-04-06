@@ -13,17 +13,17 @@ const contentShow = keyframes({
 
 export const ModalTrigger = styled(AlertDialog.Trigger, {
   backgroundColor: "transparent",
-  borderLeft: "1px solid $lilac100",
+  borderLeft: "1px solid $mediumDarkColor",
 
   ".myShelf": {
     fontSize: "1.29em",
     lineHeight: "60px",
     padding: "0px 20px",
     transition: ".2s",
-    color: "$purple200",
+    color: "$moreDarkColor",
 
     "&:hover": {
-      color: "$purple100",
+      color: "$darkColor",
     },
   },
 
@@ -39,7 +39,7 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
 
   "@max768px": {
     borderLeft: "0px",
-    borderTop: "1px solid $lilac100",
+    borderTop: "1px solid $mediumDarkColor",
   },
 });
 
@@ -63,7 +63,7 @@ export const ModalContent = styled(AlertDialog.Content, {
   height: "40vh",
   maxWidth: "450px",
   maxHeight: "85vh",
-  backgroundColor: "white",
+  backgroundColor: "$white500",
   borderRadius: "1em",
   padding: "25px",
   zIndex: 2,
@@ -87,12 +87,12 @@ export const ModalContent = styled(AlertDialog.Content, {
 });
 
 export const ModalTitle = styled(AlertDialog.Title, {
-  color: "$purple500",
-  textShadow: "-1px 2px #9D4EDD",
+  color: "$darkerColor",
+  textShadow: "-1px 1px #B1780F",
 });
 
 export const ModalDescription = styled(AlertDialog.Description, {
-  color: "$purple200",
+  color: "$moreDarkColor",
 });
 
 export const ModalCancel = styled(AlertDialog.Cancel, {
@@ -101,12 +101,12 @@ export const ModalCancel = styled(AlertDialog.Cancel, {
   right: 0,
   margin: "25px",
   backgroundColor: "transparent",
-  color: "$purple500",
+  color: "$darkerColor",
   transition: ".2s",
   fontSize: "0.8em",
 
   "&:hover": {
-    color: "$lilac100",
+    color: "$mediumDarkColor",
   },
 
   "@min1440px": {
@@ -117,7 +117,7 @@ export const ModalCancel = styled(AlertDialog.Cancel, {
 export const ModalAction = styled(AlertDialog.Action, {
   padding: "10px 25px",
   borderRadius: "2rem",
-  backgroundColor: "$lilac100",
+  backgroundColor: "$mediumDarkColor",
   color: "$white500",
   flexCenterJC: "",
   gap: "10px",
@@ -129,7 +129,7 @@ export const ModalAction = styled(AlertDialog.Action, {
   },
 
   "&:hover": {
-    backgroundColor: "$lilac80",
+    backgroundColor: "$mediumColor",
   },
 
   "@min1440px": {

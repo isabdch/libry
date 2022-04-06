@@ -16,7 +16,7 @@ export const SignInButtonComponent = styled("button", {
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
-  backgroundColor: "$lilac100",
+  backgroundColor: "$mediumDarkColor",
   color: "$white500",
   flexCenterJC: "space-around",
   gap: "10px",
@@ -33,7 +33,7 @@ export const SignInButtonComponent = styled("button", {
   },
 
   "&:hover": {
-    backgroundColor: "$lilac80",
+    backgroundColor: "$mediumColor",
   },
 
   "@min1440px": {
@@ -65,16 +65,16 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
-  backgroundColor: "$lilac100",
+  backgroundColor: "$mediumDarkColor",
   color: "$white500",
-  border: "2px solid $purple200",
+  border: "2px solid $moreDarkColor",
   flexCenterJC: "space-around",
   gap: "10px",
   fontSize: "1rem",
   transition: ".2s",
 
   "&:hover": {
-    backgroundColor: "$lilac80",
+    backgroundColor: "$mediumColor",
   },
 
   "&:focus": {
@@ -175,12 +175,12 @@ export const ModalContent = styled(AlertDialog.Content, {
 });
 
 export const ModalTitle = styled(AlertDialog.Title, {
-  color: "$purple500",
-  textShadow: "-1px 2px #9D4EDD",
+  color: "$darkerColor",
+  textShadow: "-1px 1px #B1780F",
 });
 
 export const ModalDescription = styled(AlertDialog.Description, {
-  color: "$purple200",
+  color: "$moreDarkColor",
 
   "@min1440px": {
     fontSize: "1.5vw",
@@ -190,13 +190,13 @@ export const ModalDescription = styled(AlertDialog.Description, {
 export const ModalCancel = styled(AlertDialog.Cancel, {
   padding: "10px 35px",
   borderRadius: "2rem",
-  backgroundColor: "$lilac65",
+  backgroundColor: "$headerColor",
   color: "$white500",
   transition: ".2s",
   fontSize: "0.9em",
 
   "&:hover": {
-    backgroundColor: "$lilac80",
+    backgroundColor: "$mediumColor",
   },
 
   "@min1440px": {
@@ -213,13 +213,13 @@ export const ModalCancel = styled(AlertDialog.Cancel, {
 export const ModalAction = styled(AlertDialog.Action, {
   padding: "10px 35px",
   borderRadius: "2rem",
-  backgroundColor: "$lilac100",
+  backgroundColor: "$mediumDarkColor",
   color: "$white500",
   transition: ".2s",
   fontSize: "0.9em",
 
   "&:hover": {
-    backgroundColor: "$lilac80",
+    backgroundColor: "$mediumColor",
   },
 
   "@min1440px": {

@@ -17,7 +17,7 @@ export const BookshelfMainComponent = styled("main", {
 
   ".goBack": {
     backgroundColor: "transparent",
-    color: "$purple500",
+    color: "$darkerColor",
     fontSize: "1em",
     position: "absolute",
     top: 0,
@@ -26,7 +26,7 @@ export const BookshelfMainComponent = styled("main", {
     transition: ".2s",
 
     "&:hover": {
-      color: "$purple100",
+      color: "$darkColor",
     },
 
     "@min1440px": {
@@ -45,7 +45,7 @@ export const BookshelfMainComponent = styled("main", {
       top: "300%",
       left: "50%",
       transform: "translateX(-50%)",
-      color: "$lilac100",
+      color: "$mediumDarkColor",
 
       "@min1440px": {
         fontSize: "1vw",
@@ -56,7 +56,8 @@ export const BookshelfMainComponent = styled("main", {
 
 export const BookCard = styled(AlertDialog.Trigger, {
   width: "210px",
-  backgroundColor: "$lilac65",
+  backgroundColor: "$bookCoverColor",
+  boxShadow: "-1px 1px 10px #F2C46E",
   borderRadius: "0.5em",
   flexCenterJC: "space-between",
   flexDirection: "column",
@@ -71,6 +72,8 @@ export const BookCard = styled(AlertDialog.Trigger, {
     height: "220px",
     width: "170px",
     position: "relative",
+    borderRadius: "0.5em",
+    
 
     img: {
       borderRadius: "0.5em",
@@ -78,7 +81,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
   },
 
   h1: {
-    color: "$purple500",
+    color: "$darkerColor",
     fontSize: "1.3em",
     marginBottom: "auto",
   },
@@ -90,11 +93,11 @@ export const BookCard = styled(AlertDialog.Trigger, {
     ".trashBtn": {
       fontSize: "1.2em",
       marginTop: "5px",
-      color: "$purple500",
+      color: "$darkerColor",
       transition: ".2s",
 
       "&:hover": {
-        color: "$purple200",
+        color: "$moreDarkColor",
       },
 
       svg: {
@@ -104,7 +107,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
   },
 
   "&:focus": {
-    outlineColor: "$purple500",
+    outlineColor: "$darkerColor",
   },
 
   "@min1440px": {
@@ -143,13 +146,13 @@ export const BookModalContent = styled(AlertDialog.Content, {
   transform: "translate(-50%, -50%)",
   width: "50vw",
   maxHeight: "85vh",
-  backgroundColor: "white",
+  backgroundColor: "$white500",
   borderRadius: "1.5em",
   zIndex: 2,
   flexCenterJC: "center",
   gap: "20px",
   padding: "20px",
-  color: "$purple500",
+  color: "$darkerColor",
 
   "&:focus": {
     outline: "none",
@@ -165,11 +168,11 @@ export const BookModalContent = styled(AlertDialog.Content, {
       position: "relative",
       height: "220px",
       width: "170px",
-      borderRadius: "1em",
-      boxShadow: "-1px 1px 10px #9D4EDD",
+      borderRadius: "0.5em",
+      boxShadow: "-1px 1px 10px #EDAC33",
 
       img: {
-        borderRadius: "1em",
+        borderRadius: "0.5em",
       },
     },
 
@@ -201,7 +204,6 @@ export const BookModalContent = styled(AlertDialog.Content, {
       ".img": {
         height: "30vh",
         width: "12vw",
-        boxShadow: "-0.4vw 0.4vw #5A189A",
       },
     },
   },
@@ -215,7 +217,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
     flexDirection: "column",
     justifyContent: "",
     maxHeight: "90vh",
-    color: "$purple500",
+    color: "$darkerColor",
     gap: "0px",
 
     ".info": {
@@ -237,7 +239,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
 });
 
 export const BookModalTitle = styled(AlertDialog.Title, {
-  textShadow: "-1px 1px #9D4EDD",
+  textShadow: "-1px 1px #EDAC33",
 
   "@max650px": {
     textAlign: "center",
@@ -249,14 +251,14 @@ export const BookModalDescription = styled(AlertDialog.Description, {
   paddingRight: "5px",
   height: "100%",
   scrollbarWidth: "thin",
-  scrollbarColor: "#C77DFF #FFFFFF",
+  scrollbarColor: "#F2C46E #FFFFFF",
 
   "&::-webkit-scrollbar": {
     width: "0.5vw",
   },
 
   "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "$lilac100",
+    backgroundColor: "$mediumDarkColor",
     borderRadius: "2em",
   },
 
@@ -271,16 +273,16 @@ export const BookModalCancel = styled(AlertDialog.Cancel, {
   right: 0,
   margin: "18px",
   backgroundColor: "transparent",
-  color: "$purple500",
+  color: "$darkerColor",
   transition: ".2s",
   fontSize: "1em",
 
   "&:hover": {
-    color: "$lilac100",
+    color: "$mediumDarkColor",
   },
 
   "&:focus": {
-    outlineColor: "$purple500",
+    outlineColor: "$darkerColor",
   },
 
   "@min1440px": {
@@ -298,11 +300,11 @@ export const BookModalAction = styled(AlertDialog.Action, {
     ".trashBtn": {
       fontSize: "1.2em",
       marginTop: "5px",
-      color: "$purple500",
+      color: "$darkerColor",
       transition: ".2s",
 
       "&:hover": {
-        color: "$purple200",
+        color: "$moreDarkColor",
       },
 
       "@min1440px": {

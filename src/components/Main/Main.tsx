@@ -46,9 +46,6 @@ export function Main({
             </button>
           </form>
         </section>
-        <div className="img">
-          <Image src="/images/image.svg" alt="Books" layout="fill" priority />
-        </div>
         <span ref={scrollSpan}></span>
       </MainComponent>
     </>

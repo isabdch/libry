@@ -4,7 +4,7 @@ export const HeaderComponent = styled("header", {
   width: "100%",
   height: "100px",
   flexCenterAI: "",
-  backgroundColor: "$lilac65",
+  backgroundColor: "$headerColor",
   position: "sticky",
   top: 0,
   zIndex: 2,
@@ -15,7 +15,7 @@ export const HeaderComponent = styled("header", {
 
     ".content": {
       flexCenterJC: "",
-      color: "$purple200",
+      color: "$moreDarkColor",
       gap: "20px",
 
       ".logo": {
@@ -26,8 +26,8 @@ export const HeaderComponent = styled("header", {
         h1: {
           fontFamily: "logoFont",
           letterSpacing: "3px",
-          color: "$purple500",
-          textShadow: "-3px 1px #9D4EDD",
+          color: "$darkerColor",
+          textShadow: "-3px 1px #EDAC33",
         },
 
         ".img": {
@@ -40,8 +40,8 @@ export const HeaderComponent = styled("header", {
   },
 
   ".menuBtn": {
-    backgroundColor: "$lilac65",
-    color: "$purple500",
+    backgroundColor: "$headerColor",
+    color: "$darkerColor",
     display: "none",
     position: "absolute",
     top: 0,
@@ -85,7 +85,7 @@ export const HeaderComponent = styled("header", {
     ".menuBtn": {
       display: "inherit",
       borderRadius: "50%",
-      "--balloon-color": "#C77DFF",
+      "--balloon-color": "#EDAC33",
     },
 
     ".hideMenuNav": {

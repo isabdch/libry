@@ -1,5 +1,4 @@
 import { keyframes, styled } from "../../../stitches.config";
-import { ToastContainer, toast } from 'react-toastify';
 import * as Popover from "@radix-ui/react-popover";
 
 const slideUpAndFade = keyframes({
@@ -25,17 +24,17 @@ const slideLeftAndFade = keyframes({
 export const PopoverTrigger = styled(Popover.Trigger, {
   padding: "5px 20px",
   borderRadius: "2rem",
-  backgroundColor: "$lilac100",
+  backgroundColor: "$mediumDarkColor",
   color: "$white500",
   fontSize: "1.2em",
   transition: ".2s",
 
   "&:hover": {
-    backgroundColor: "$lilac80",
+    backgroundColor: "$mediumColor",
   },
 
   "&:active": {
-    backgroundColor: "$lilac100",
+    backgroundColor: "$mediumDarkColor",
   },
 
   "@min1440px": {
@@ -45,7 +44,7 @@ export const PopoverTrigger = styled(Popover.Trigger, {
 
 export const PopoverContent = styled(Popover.Content, {
   backgroundColor: "$white500",
-  boxShadow: "0px 1px 5px #9D4EDD",
+  boxShadow: "0px 1px 5px #EDAC33",
   width: "200px",
   borderRadius: "0.5em",
   flexDirection: "column",
@@ -84,17 +83,17 @@ export const PopoverClose = styled(Popover.Close, {
     flexCenterAI: "center",
     width: "80%",
     padding: "10px 0px",
-    color: "$purple500",
+    color: "$darkerColor",
     cursor: "pointer",
     transition: ".2s",
 
     "&.center": {
-      borderTop: "1px solid $lilac65",
-      borderBottom: "1px solid $lilac65",
+      borderTop: "1px solid $headerColor",
+      borderBottom: "1px solid $headerColor",
     },
 
     "&:hover": {
-      color: "$lilac100",
+      color: "$mediumDarkColor",
     },
   },
 });

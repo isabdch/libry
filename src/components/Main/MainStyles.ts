@@ -10,14 +10,14 @@ export const MainComponent = styled("main", {
 
   ".searchSection": {
     padding: "0px 50px",
-    color: "$purple500",
+    color: "$darkerColor",
 
     h1: {
       margin: "15px 0px",
       fontFamily: "logoFont",
       letterSpacing: "1px",
-      color: "$lilac100",
-      textShadow: "-2px 2px #7B2CBF",
+      color: "$mediumDarkColor",
+      textShadow: "-2px 2px #B1780F",
     },
 
     p: {
@@ -27,23 +27,23 @@ export const MainComponent = styled("main", {
     form: {
       margin: "15px 0px",
       width: "fit-content",
+      border: "2px solid $mediumDarkColor",
       borderRadius: "2em 2em 2em 2em",
 
       "&:focus-within": {
-        outline: "2px solid $lilac100",
+        outline: "1px solid $mediumDarkColor",
       },
 
       input: {
         width: "33vw",
         padding: "13px 15px",
-        border: "none",
         borderRadius: "2em 0em 0em 2em",
         fontSize: "0.8em",
-        color: "$purple500",
+        color: "$darkerColor",
         outline: "none",
 
         "&::placeholder": {
-          color: "$lilac100",
+          color: "$mediumDarkColor",
         },
       },
 
@@ -52,36 +52,20 @@ export const MainComponent = styled("main", {
         paddingRight: "20px",
         borderRadius: "0em 2em 2em 0em",
         fontSize: "0.8em",
-        backgroundColor: "$lilac100",
+        backgroundColor: "$mediumDarkColor",
         color: "$white500",
         transition: ".2s",
 
         "&:hover": {
-          backgroundColor: "$lilac80",
+          backgroundColor: "$mediumColor",
         },
       },
     },
   },
 
-  ".img": {
-    position: "absolute",
-    zIndex: "-1",
-    top: "50%",
-    transform: "translateY(-50%)",
-    right: "3%",
-    width: "35vw",
-    height: "35vw",
-  },
-
   "@min1440px": {
     fontSize: "1.45vw",
     height: "80vh",
-  },
-
-  "@max1024px": {
-    ".img": {
-      display: "none",
-    },
   },
 
   "@max768px": {

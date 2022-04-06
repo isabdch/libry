@@ -5,18 +5,18 @@ export const Container = styled("div", {
   flexCenterAI: "center",
   flexDirection: "column",
   gap: "20px",
-  color: "$purple500",
+  color: "$darkerColor",
 
   p: {
     fontSize: "1.1em",
 
     a: {
       fontSize: "1.4em",
-      color: "$purple100",
+      color: "$darkColor",
       transition: ".2s",
 
       "&:hover": {
-        color: "$purple500",
+        color: "$darkerColor",
       },
     },
   },
@@ -31,11 +31,11 @@ export const Container = styled("div", {
 
       a: {
         fontSize: "1.2em",
-        color: "$purple100",
+        color: "$darkColor",
         transition: ".2s",
 
         "&:hover": {
-          color: "$purple500",
+          color: "$darkerColor",
         },
       },
     },
@@ -51,11 +51,11 @@ export const Container = styled("div", {
 
       a: {
         fontSize: "1.2em",
-        color: "$purple100",
+        color: "$darkColor",
         transition: ".2s",
 
         "&:hover": {
-          color: "$purple500",
+          color: "$darkerColor",
         },
       },
     },
