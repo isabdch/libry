@@ -12,17 +12,24 @@ const contentShow = keyframes({
 });
 
 export const SignInButtonComponent = styled("button", {
-  padding: "10px 25px",
-  borderRadius: "2rem",
+  width: "18vw",
+  height: "45px",
+  padding: "10px",
+  borderRadius: "9999px",
   backgroundColor: "$lilac100",
   color: "$white500",
-  flexCenterJC: "",
+  flexCenterJC: "space-around",
   gap: "10px",
   fontSize: "1rem",
   transition: ".2s",
 
-  ".googleIcon": {
-    fontSize: "0.9em",
+  ".noLoading": {
+    flexCenterJC: "space-around",
+    gap: "10px",
+
+    ".googleIcon": {
+      fontSize: "0.9em",
+    },
   },
 
   "&:hover": {
@@ -31,6 +38,15 @@ export const SignInButtonComponent = styled("button", {
 
   "@min1440px": {
     fontSize: "1.3vw",
+    height: "50%",
+  },
+
+  "@max1024px": {
+    width: "23vw",
+  },
+
+  "@max768px": {
+    width: "95%",
   },
 
   "@max425px": {
@@ -41,13 +57,14 @@ export const SignInButtonComponent = styled("button", {
 });
 
 export const ModalTrigger = styled(AlertDialog.Trigger, {
-  padding: "3px 18px",
-  paddingLeft: "12px",
-  borderRadius: "2rem",
+  width: "18vw",
+  height: "45px",
+  padding: "10px",
+  borderRadius: "9999px",
   backgroundColor: "$lilac100",
   color: "$white500",
   border: "2px solid $purple200",
-  flexCenterJC: "",
+  flexCenterJC: "space-around",
   gap: "10px",
   fontSize: "1rem",
   transition: ".2s",
@@ -55,7 +72,7 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
   "&:hover": {
     backgroundColor: "$lilac80",
   },
-  
+
   "&:focus": {
     outline: "2px solid transparent",
   },
@@ -65,13 +82,40 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
   },
 
   ".profileImg": {
-    borderRadius: "50%",
+    width: "35px",
+    height: "35px",
+    position: "relative",
+
+    img: {
+      borderRadius: "50%",
+    },
   },
 
   "@min1440px": {
     fontSize: "1.3vw",
+    height: "50%",
+
+    ".signOutIcon": {
+      fontSize: "0.7em",
+    },
+
+    ".profileImg": {
+      width: "2.5vw",
+      height: "2.5vw",
+    },
   },
 
+  "@max1024px": {
+    width: "23vw",
+  },
+
+  "@max768px": {
+    width: "95%",
+
+    ".profileImg": {
+      display: "none",
+    },
+  },
 });
 
 export const ModalOverlay = styled(AlertDialog.Overlay, {

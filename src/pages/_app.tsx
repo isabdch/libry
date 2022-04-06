@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
       <ToastContainer
         position="top-left"
-        autoClose={3000}
+        autoClose={2500}
         hideProgressBar
         newestOnTop={true}
         closeOnClick

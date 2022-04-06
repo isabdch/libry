@@ -19,12 +19,17 @@ import {
 import { FaGoogle } from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
 import { toast } from "react-toastify";
+import { ImpulseSpinner } from "react-spinners-kit";
+import { useEffect, useState } from "react";
 
 export function SignButtons() {
+  const dispatch = useDispatch<Dispatch<Action>>();
+
   const isSignedIn = useSelector((state: RootState) => {
     return state.isUserSignedIn;
   });
-  const dispatch = useDispatch<Dispatch<Action>>();
+
+  const [loading, setLoading] = useState<boolean>(false);
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -34,16 +39,20 @@ export function SignButtons() {
     }
   });
 
+  useEffect(() => {
+    if (localStorage.getItem("isLoading") == null) {
+      localStorage.setItem("isLoading", JSON.stringify(false));
+    } else {
+      setLoading(JSON.parse(localStorage.getItem("isLoading")));
+    }
+  }, []);
+
   return isSignedIn ? (
     <AlertDialog.Root>
       <ModalTrigger>
-        <Image
-          src={isSignedIn.photoURL}
-          className="profileImg"
-          alt="Profile image"
-          width="35px"
-          height="35px"
-        />
+        <div className="profileImg">
+          <Image src={isSignedIn.photoURL} alt="Profile image" layout="fill" />
+        </div>
         {isSignedIn.displayName} <BsXLg className="signOutIcon" />
       </ModalTrigger>
       <AlertDialog.Portal>
@@ -60,7 +69,9 @@ export function SignButtons() {
                 onClick={() => {
                   signOutGoogle();
                   localStorage.removeItem("user-accessToken");
+                  localStorage.setItem("isLoading", JSON.stringify(false));
                   toast.info("You're signed out.", { theme: "colored" });
+                  setLoading(false);
                 }}
               >
                 Sign out
@@ -75,9 +86,23 @@ export function SignButtons() {
       title="Sign in"
       onClick={() => {
         signInGoogle();
+        localStorage.setItem("isLoading", JSON.stringify(true));
       }}
     >
-      Sign in with Google <FaGoogle className="googleIcon" />
+      {loading == true ? (
+        <span>
+          <ImpulseSpinner
+            size={2}
+            sizeUnit="em"
+            frontColor="#9D4EDD"
+            backColor="#E3BFFF"
+          />
+        </span>
+      ) : (
+        <span className="noLoading">
+          Sign in with Google <FaGoogle className="googleIcon" />
+        </span>
+      )}
     </SignInButtonComponent>
   );
 }
