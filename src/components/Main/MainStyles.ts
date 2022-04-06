@@ -93,8 +93,6 @@ export const MainComponent = styled("main", {
       fontSize: "0.9em",
 
       form: {
-        width: "100%",
-
         input: {
           width: "50vw",
           padding: "10px 15px",
@@ -109,10 +107,11 @@ export const MainComponent = styled("main", {
   },
 
   "@max425px": {
-    justifyContent: "center",
+    textAlign: "center",
 
     ".searchSection": {
-      textAlign: "center",
+      flexCenterAI: "center",
+      flexDirection: "column",
     },
   },
 });

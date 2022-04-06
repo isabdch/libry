@@ -175,6 +175,7 @@ export function BookshelfMain() {
                       }
                       alt={book.volumeInfo.title}
                       layout="fill"
+                      priority
                     />
                   </div>
                   <h1>
@@ -225,6 +226,7 @@ export function BookshelfMain() {
                           }
                           alt={book.volumeInfo.title}
                           layout="fill"
+                          priority
                         />
                       </div>
                       <div className="infoContent">

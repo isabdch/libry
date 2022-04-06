@@ -6,7 +6,7 @@ export default function InexistentPage() {
     <Container>
       <h1>This page doesn&apos;t exist</h1>
       <p>
-        Go back to <Link href="/">Home</Link>
+        Go back to <Link href="/">HOME</Link>
       </p>
     </Container>
   );

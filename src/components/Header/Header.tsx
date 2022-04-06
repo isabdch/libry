@@ -49,7 +49,13 @@ export function Header() {
       <div className={menu == true ? "container" : "container hideMenuNav"}>
         <div className="content">
           <Link href="/" passHref>
-            <span className="logo">
+            <span
+              className="logo"
+              onClick={() => {
+                setMenu(false);
+                localStorage.setItem("isMenuOpen", JSON.stringify(false));
+              }}
+            >
               <div className="img">
                 <Image src="/images/logo.svg" alt="e-Library" layout="fill" />
               </div>

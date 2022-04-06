@@ -33,6 +33,7 @@ export const {
   media: {
     min2560px: "(min-width: 2560px)",
     min1440px: "(min-width: 1440px)",
+    max1250px: "(max-width: 1250px)",
     max1024px: "(max-width: 1024px)",
     max768px: "(max-width: 768px)",
     max720px: "(max-width: 720px)",

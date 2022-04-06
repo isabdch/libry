@@ -162,7 +162,6 @@ export const BookModalContent = styled(AlertDialog.Content, {
       ".img": {
         height: "30vh",
         width: "12vw",
-        boxShadow: "-0.4vw 0.4vw #5A189A",
       },
     },
   },

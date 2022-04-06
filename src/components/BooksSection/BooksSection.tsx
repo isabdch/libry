@@ -33,6 +33,7 @@ export function BooksSection({ books }: BooksState) {
                       }
                       alt={book.volumeInfo.title}
                       layout="fill"
+                      priority
                     />
                   </div>
                   <h1>
@@ -70,6 +71,7 @@ export function BooksSection({ books }: BooksState) {
                           }
                           alt={book.volumeInfo.title}
                           layout="fill"
+                          priority
                         />
                       </div>
                       <div className="infoContent">

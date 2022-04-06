@@ -41,8 +41,12 @@ export const SignInButtonComponent = styled("button", {
     height: "50%",
   },
 
+  "@max1250px": {
+    width: "20vw",
+  },
+
   "@max1024px": {
-    width: "23vw",
+    width: "25vw",
   },
 
   "@max768px": {
@@ -105,8 +109,12 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
     },
   },
 
+  "@max1250px": {
+    width: "20vw",
+  },
+
   "@max1024px": {
-    width: "23vw",
+    width: "25vw",
   },
 
   "@max768px": {
