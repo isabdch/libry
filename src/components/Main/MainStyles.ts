@@ -26,11 +26,11 @@ export const MainComponent = styled("main", {
     form: {
       margin: "15px 0px",
       width: "fit-content",
-      border: "2px solid $vibrantColor",
+      border: "2px solid $mediumColor",
       borderRadius: "2em 2em 2em 2em",
 
       "&:focus-within": {
-        outline: "1px solid $vibrantColor",
+        outline: "1px solid $mediumColor",
       },
 
       input: {
@@ -39,6 +39,7 @@ export const MainComponent = styled("main", {
         borderRadius: "2em 0em 0em 2em",
         fontSize: "0.8em",
         color: "$darkerColor",
+        backgroundColor: "$inputBackgroundColor",
         outline: "none",
 
         "&::placeholder": {
@@ -51,7 +52,7 @@ export const MainComponent = styled("main", {
         paddingRight: "20px",
         borderRadius: "0em 2em 2em 0em",
         fontSize: "0.8em",
-        backgroundColor: "$vibrantColor",
+        backgroundColor: "$mediumColor",
         color: "$white500",
         transition: ".2s",
 

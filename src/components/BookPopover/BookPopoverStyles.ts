@@ -43,7 +43,7 @@ export const PopoverTrigger = styled(Popover.Trigger, {
 });
 
 export const PopoverContent = styled(Popover.Content, {
-  backgroundColor: "$white500",
+  backgroundColor: "$inputBackgroundColor",
   boxShadow: "0px 1px 5px #6C757D",
   width: "200px",
   borderRadius: "0.5em",
@@ -70,7 +70,7 @@ export const PopoverContent = styled(Popover.Content, {
 });
 
 export const PopoverArrow = styled(Popover.Arrow, {
-  fill: "$white500",
+  fill: "$inputBackgroundColor",
 });
 
 export const PopoverClose = styled(Popover.Close, {
@@ -88,8 +88,8 @@ export const PopoverClose = styled(Popover.Close, {
     transition: ".2s",
 
     "&.center": {
-      borderTop: "1px solid $headerColor",
-      borderBottom: "1px solid $headerColor",
+      borderTop: "1px solid $mediumColor",
+      borderBottom: "1px solid $mediumColor",
     },
 
     "&:hover": {

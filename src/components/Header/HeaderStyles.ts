@@ -1,4 +1,5 @@
 import { styled } from "../../../stitches.config";
+import * as Switch from "@radix-ui/react-switch";
 
 export const HeaderComponent = styled("header", {
   width: "100%",
@@ -35,6 +36,11 @@ export const HeaderComponent = styled("header", {
           height: "35px",
         },
       },
+    },
+
+    ".buttons": {
+      flexCenterAI: "center",
+      gap: "20px",
     },
   },
 
@@ -79,12 +85,16 @@ export const HeaderComponent = styled("header", {
       ".content": {
         flexDirection: "column",
       },
+
+      ".buttons": {
+        flexCenterAI: "center",
+        flexDirection: "column",
+      },
     },
 
     ".menuBtn": {
       display: "inherit",
       borderRadius: "50%",
-      "--balloon-color": "#EDAC33",
     },
 
     ".hideMenuNav": {
@@ -110,5 +120,43 @@ export const HeaderComponent = styled("header", {
 
   "@max425px": {
     width: "50vw",
+  },
+});
+
+export const SwitchRoot = styled(Switch.Root, {
+  width: "42px",
+  height: "25px",
+  backgroundColor: "$lighterColor",
+  borderRadius: "9999px",
+  position: "relative",
+  cursor: "pointer",
+
+  '&[data-state="checked"]': {
+    backgroundColor: "$mediumDarkColor",
+  },
+
+  "@min1440px": {
+    width: "3vw",
+    height: "1.8vw",
+  },
+});
+
+export const StyledSwitchThumb = styled(Switch.Thumb, {
+  display: "block",
+  width: "21px",
+  height: "21px",
+  backgroundColor: "$vibrantColor",
+  borderRadius: "9999px",
+  transition: ".1s",
+  transform: "translateX(2px)",
+  willChange: "transform",
+
+  '&[data-state="checked"]': {
+    transform: "translateX(calc(100% - 2px))",
+  },
+
+  "@min1440px": {
+    width: "1.4vw",
+    height: "1.4vw",
   },
 });

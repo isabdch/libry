@@ -22,6 +22,7 @@ export const {
       darkerColor: "#242F40",
       vibrantColor: "#7161EF",
       darkerVibrantColor: "#3820E9",
+      inputBackgroundColor: "#FFFFFF",
     },
 
     fontSizes: {
@@ -57,4 +58,20 @@ export const {
     }),
   },
   prefix: "radix",
+});
+
+export const darkModeTheme = createTheme("darkModeTheme", {
+  colors: {
+    white500: "#FFFFFF",
+    lighterColor: "#232323",
+    headerColor: "#111111",
+    mediumColor: "#495057",
+    mediumDarkColor: "#6C757D",
+    darkColor: "#ADB5BD",
+    moreDarkColor: "#ECFEE8",
+    darkerColor: "#CED4DA",
+    vibrantColor: "#7161EF",
+    darkerVibrantColor: "#3820E9",
+    inputBackgroundColor: "#111111",
+  },
 });

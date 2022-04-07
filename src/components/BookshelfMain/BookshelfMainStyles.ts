@@ -145,7 +145,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
   transform: "translate(-50%, -50%)",
   width: "50vw",
   maxHeight: "85vh",
-  backgroundColor: "$white500",
+  backgroundColor: "$inputBackgroundColor",
   borderRadius: "1.5em",
   zIndex: 2,
   flexCenterJC: "center",
