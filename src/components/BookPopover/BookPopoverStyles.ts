@@ -93,7 +93,7 @@ export const PopoverClose = styled(Popover.Close, {
     },
 
     "&:hover": {
-      filter: "brightness(1.08)",
+      color: "$darkerVibrantColor",
     },
   },
 });

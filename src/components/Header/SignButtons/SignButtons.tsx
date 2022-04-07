@@ -42,6 +42,7 @@ export function SignButtons() {
   useEffect(() => {
     if (localStorage.getItem("isLoading") == null) {
       localStorage.setItem("isLoading", JSON.stringify(false));
+      setLoading(false);
     } else {
       setLoading(JSON.parse(localStorage.getItem("isLoading")));
     }
