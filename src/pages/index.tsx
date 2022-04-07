@@ -8,7 +8,7 @@ import { Book } from "../store/types";
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
   const [inputValue, setInputValue] = useState("");
-  
+
   function searchBooks(event: React.MouseEvent) {
     event.preventDefault();
 

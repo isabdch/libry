@@ -10,10 +10,6 @@ export function withAuth(WrappedComponent: React.ComponentType<{}>) {
       const Router = useRouter();
       const accessToken = localStorage.getItem("user-accessToken");
 
-      //   const isSignedIn = useSelector((state: RootState) => {
-      //     return state.isUserSignedIn;
-      //   });
-
       // If there is no access token we redirect to "/" page.
       if (!accessToken) {
         Router.replace("/");

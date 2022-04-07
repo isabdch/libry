@@ -28,8 +28,8 @@ export function signOutGoogle() {
 }
 
 type UserAccessTokenType = {
-  accessToken?: string
-}
+  accessToken?: string;
+};
 
 function isSignedInFunction() {
   getRedirectResult(auth)

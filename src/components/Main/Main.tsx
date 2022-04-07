@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Book  } from "../../store/types";
+import { Book } from "../../store/types";
 import Image from "next/image";
 import { MainComponent } from "./MainStyles";
 import { BsSearch } from "react-icons/bs";

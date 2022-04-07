@@ -20,7 +20,7 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
     lineHeight: "60px",
     padding: "0px 20px",
     transition: ".2s",
-    color: "$mediumDarkColor",
+    color: "$darkColor",
 
     "&:hover": {
       filter: "brightness(1.2)",
