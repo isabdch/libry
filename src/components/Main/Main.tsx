@@ -45,6 +45,13 @@ export function Main({
               <BsSearch />
             </button>
           </form>
+          <div className="img">
+            <Image
+              src="/images/image.svg"
+              alt="book illustration"
+              layout="fill"
+            />
+          </div>
         </section>
         <span ref={scrollSpan}></span>
       </MainComponent>

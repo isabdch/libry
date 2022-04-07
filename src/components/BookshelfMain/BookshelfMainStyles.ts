@@ -56,8 +56,7 @@ export const BookshelfMainComponent = styled("main", {
 
 export const BookCard = styled(AlertDialog.Trigger, {
   width: "210px",
-  backgroundColor: "$bookCoverColor",
-  boxShadow: "-1px 1px 10px #F2C46E",
+  backgroundColor: "$headerColor",
   borderRadius: "0.5em",
   flexCenterJC: "space-between",
   flexDirection: "column",
@@ -169,7 +168,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
       height: "220px",
       width: "170px",
       borderRadius: "0.5em",
-      boxShadow: "-1px 1px 10px #EDAC33",
+      boxShadow: "0px 1px 5px #6C757D",
 
       img: {
         borderRadius: "0.5em",
@@ -239,8 +238,6 @@ export const BookModalContent = styled(AlertDialog.Content, {
 });
 
 export const BookModalTitle = styled(AlertDialog.Title, {
-  textShadow: "-1px 1px #EDAC33",
-
   "@max650px": {
     textAlign: "center",
   },
@@ -251,14 +248,14 @@ export const BookModalDescription = styled(AlertDialog.Description, {
   paddingRight: "5px",
   height: "100%",
   scrollbarWidth: "thin",
-  scrollbarColor: "#F2C46E #FFFFFF",
+  scrollbarColor: "#7161EF #FFFFFF",
 
   "&::-webkit-scrollbar": {
     width: "0.5vw",
   },
 
   "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "$mediumDarkColor",
+    backgroundColor: "$vibrantColor",
     borderRadius: "2em",
   },
 

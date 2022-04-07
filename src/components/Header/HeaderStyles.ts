@@ -26,8 +26,7 @@ export const HeaderComponent = styled("header", {
         h1: {
           fontFamily: "logoFont",
           letterSpacing: "3px",
-          color: "$darkerColor",
-          textShadow: "-3px 1px #EDAC33",
+          color: "$vibrantColor",
         },
 
         ".img": {

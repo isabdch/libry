@@ -24,17 +24,17 @@ const slideLeftAndFade = keyframes({
 export const PopoverTrigger = styled(Popover.Trigger, {
   padding: "5px 20px",
   borderRadius: "2rem",
-  backgroundColor: "$mediumDarkColor",
+  backgroundColor: "$vibrantColor",
   color: "$white500",
   fontSize: "1.2em",
   transition: ".2s",
 
   "&:hover": {
-    backgroundColor: "$mediumColor",
+    filter: "brightness(1.08)",
   },
 
   "&:active": {
-    backgroundColor: "$mediumDarkColor",
+    filter: "brightness(1)",
   },
 
   "@min1440px": {
@@ -44,7 +44,7 @@ export const PopoverTrigger = styled(Popover.Trigger, {
 
 export const PopoverContent = styled(Popover.Content, {
   backgroundColor: "$white500",
-  boxShadow: "0px 1px 5px #EDAC33",
+  boxShadow: "0px 1px 5px #6C757D",
   width: "200px",
   borderRadius: "0.5em",
   flexDirection: "column",
@@ -93,7 +93,7 @@ export const PopoverClose = styled(Popover.Close, {
     },
 
     "&:hover": {
-      color: "$mediumDarkColor",
+      filter: "brightness(1.08)",
     },
   },
 });

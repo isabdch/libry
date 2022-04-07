@@ -13,14 +13,15 @@ export const {
   theme: {
     colors: {
       white500: "#FFFFFF",
-      lighterColor: "#FEF8EE", // lilac50
-      bookCoverColor: "#FCF0D9",
-      headerColor: "#F9E4BC", // lilac65
-      mediumColor: "#F2C46E", // lilac80
-      mediumDarkColor: "#EDAC33", // lilac100
-      darkColor: "#B1780F", // purple100
-      moreDarkColor: "#865B0C", // purple200
-      darkerColor: "#322204", // purple500
+      lighterColor: "#ECFEE8", // lilac50
+      headerColor: "#CED4DA", // lilac65
+      mediumColor: "#ADB5BD", // lilac80
+      mediumDarkColor: "#6C757D", // lilac100
+      darkColor: "#495057", // purple100
+      moreDarkColor: "#343A40", // purple200
+      darkerColor: "#242F40", // purple500
+      vibrantColor: "#7161EF",
+      darkerVibrantColor: "#3820E9",
     },
 
     fontSizes: {

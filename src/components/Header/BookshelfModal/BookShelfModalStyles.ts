@@ -13,17 +13,17 @@ const contentShow = keyframes({
 
 export const ModalTrigger = styled(AlertDialog.Trigger, {
   backgroundColor: "transparent",
-  borderLeft: "1px solid $mediumDarkColor",
+  borderLeft: "1px solid $mediumColor",
 
   ".myShelf": {
     fontSize: "1.29em",
     lineHeight: "60px",
     padding: "0px 20px",
     transition: ".2s",
-    color: "$moreDarkColor",
+    color: "$mediumDarkColor",
 
     "&:hover": {
-      color: "$darkColor",
+      filter: "brightness(1.2)",
     },
   },
 
@@ -88,7 +88,6 @@ export const ModalContent = styled(AlertDialog.Content, {
 
 export const ModalTitle = styled(AlertDialog.Title, {
   color: "$darkerColor",
-  textShadow: "-1px 1px #B1780F",
 });
 
 export const ModalDescription = styled(AlertDialog.Description, {

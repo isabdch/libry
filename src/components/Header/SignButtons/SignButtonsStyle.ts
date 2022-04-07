@@ -16,7 +16,7 @@ export const SignInButtonComponent = styled("button", {
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
-  backgroundColor: "$mediumDarkColor",
+  backgroundColor: "$mediumColor",
   color: "$white500",
   flexCenterJC: "space-around",
   gap: "10px",
@@ -33,7 +33,7 @@ export const SignInButtonComponent = styled("button", {
   },
 
   "&:hover": {
-    backgroundColor: "$mediumColor",
+    filter: "brightness(1.08)",
   },
 
   "@min1440px": {
@@ -65,16 +65,16 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
-  backgroundColor: "$mediumDarkColor",
+  backgroundColor: "$vibrantColor",
   color: "$white500",
-  border: "2px solid $moreDarkColor",
+  border: "2px solid $darkerVibrantColor",
   flexCenterJC: "space-around",
   gap: "10px",
   fontSize: "1rem",
   transition: ".2s",
 
   "&:hover": {
-    backgroundColor: "$mediumColor",
+    filter: "brightness(1.08)",
   },
 
   "&:focus": {
@@ -176,7 +176,6 @@ export const ModalContent = styled(AlertDialog.Content, {
 
 export const ModalTitle = styled(AlertDialog.Title, {
   color: "$darkerColor",
-  textShadow: "-1px 1px #B1780F",
 });
 
 export const ModalDescription = styled(AlertDialog.Description, {

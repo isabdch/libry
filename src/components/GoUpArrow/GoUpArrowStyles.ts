@@ -6,13 +6,13 @@ export const StyledGoUpButton = styled("button", {
   bottom: 0,
   fontSize: "4em",
   backgroundColor: "transparent",
-  color: "$darkColor",
+  color: "$mediumColor",
   flexCenterAI: "center",
   transition: "all.2s",
   zIndex: 1,
 
   "&:hover": {
-    color: "$moreDarkColor",
+    filter: "brightness(0.9)",
   },
 
   svg: {

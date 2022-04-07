@@ -10,14 +10,13 @@ export const MainComponent = styled("main", {
 
   ".searchSection": {
     padding: "0px 50px",
-    color: "$darkerColor",
+    color: "$darkColor",
 
     h1: {
       margin: "15px 0px",
       fontFamily: "logoFont",
       letterSpacing: "1px",
-      color: "$mediumDarkColor",
-      textShadow: "-2px 2px #B1780F",
+      color: "$vibrantColor",
     },
 
     p: {
@@ -27,11 +26,11 @@ export const MainComponent = styled("main", {
     form: {
       margin: "15px 0px",
       width: "fit-content",
-      border: "2px solid $mediumDarkColor",
+      border: "2px solid $vibrantColor",
       borderRadius: "2em 2em 2em 2em",
 
       "&:focus-within": {
-        outline: "1px solid $mediumDarkColor",
+        outline: "1px solid $vibrantColor",
       },
 
       input: {
@@ -43,7 +42,7 @@ export const MainComponent = styled("main", {
         outline: "none",
 
         "&::placeholder": {
-          color: "$mediumDarkColor",
+          color: "$mediumColor",
         },
       },
 
@@ -52,20 +51,46 @@ export const MainComponent = styled("main", {
         paddingRight: "20px",
         borderRadius: "0em 2em 2em 0em",
         fontSize: "0.8em",
-        backgroundColor: "$mediumDarkColor",
+        backgroundColor: "$vibrantColor",
         color: "$white500",
         transition: ".2s",
 
         "&:hover": {
-          backgroundColor: "$mediumColor",
+          filter: "brightness(1.08)",
         },
       },
+    },
+
+    ".img": {
+      width: "450px",
+      height: "450px",
+      position: "absolute",
+      right: "5%",
+      top: "50%",
+      transform: "translateY(-50%)",
+      zIndex: "-1",
     },
   },
 
   "@min1440px": {
     fontSize: "1.45vw",
     height: "80vh",
+
+    ".searchSection": {
+      ".img": {
+        right: "3%",
+        width: "35vw",
+        height: "35vw",
+      },
+    },
+  },
+
+  "@max1250px": {
+    ".searchSection": {
+      ".img": {
+        display: "none",
+      },
+    },
   },
 
   "@max768px": {
