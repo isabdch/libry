@@ -90,7 +90,7 @@ export const BookCard = styled(AlertDialog.Trigger, {
 export const BookModalOverlay = styled(AlertDialog.Overlay, {
   position: "fixed",
   inset: 0,
-  backgroundColor: "#00000040",
+  backgroundColor: "$overlayBackgroundColor",
   zIndex: 2,
 
   "@media (prefers-reduced-motion: no-preference)": {
@@ -106,12 +106,13 @@ export const BookModalContent = styled(AlertDialog.Content, {
   width: "50vw",
   maxHeight: "85vh",
   backgroundColor: "$inputBackgroundColor",
+  boxShadow: "-1px 1px 10px $shadowColor",
+  color: "$darkerColor",
   borderRadius: "1.5em",
   zIndex: 2,
   flexCenterJC: "center",
   gap: "20px",
   padding: "20px",
-  color: "$darkerColor",
 
   "&:focus": {
     outline: "none",
@@ -128,7 +129,7 @@ export const BookModalContent = styled(AlertDialog.Content, {
       height: "220px",
       width: "170px",
       borderRadius: "0.5em",
-      boxShadow: "0px 1px 5px #6C757D",
+      boxShadow: "0px 1px 5px $shadowColor",
 
       img: {
         borderRadius: "0.5em",

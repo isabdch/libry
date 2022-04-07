@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useDispatch, useSelector } from "react-redux";
+import { Action, Dispatch } from "redux";
+import { RootState } from "../../store/types";
 import { BookshelfModal } from "./BookshelfModal/BookshelfModal";
 import { HeaderComponent, StyledSwitchThumb, SwitchRoot } from "./HeaderStyles";
 import { SignButtons } from "./SignButtons/SignButtons";
@@ -9,9 +12,14 @@ import { BsList } from "react-icons/bs";
 
 export function Header() {
   const [menu, setMenu] = useState<boolean>(false);
-  const [checked, setChecked] = useState<boolean>(false);
 
   const menuBtnRef = useRef<HTMLButtonElement>(null);
+
+  const dispatch = useDispatch<Dispatch<Action>>();
+
+  const checked = useSelector((state: RootState) => {
+    return state.switch;
+  });
 
   const { theme, setTheme } = useTheme();
 
@@ -23,13 +31,13 @@ export function Header() {
     }
 
     if (localStorage.getItem("theme") == null) {
-      setChecked(false);
+      dispatch({ type: "NOT_CHECKED" });
     } else if (localStorage.getItem("theme") == "dark") {
-      setChecked(true);
+      dispatch({ type: "CHECKED" });
     } else {
-      setChecked(false);
+      dispatch({ type: "NOT_CHECKED" });
     }
-  }, []);
+  }, [dispatch]);
 
   function handleIsMenuOpen() {
     if (menu == true) {
@@ -42,7 +50,11 @@ export function Header() {
   }
 
   function toggleTheme() {
-    setTheme(theme === "light" ? "dark" : "light");
+    if (theme == "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
   }
 
   return (
@@ -71,9 +83,9 @@ export function Header() {
               checked={checked}
               onCheckedChange={() => {
                 if (checked == false) {
-                  setChecked(true);
+                  dispatch({ type: "CHECKED" });
                 } else {
-                  setChecked(false);
+                  dispatch({ type: "NOT_CHECKED" });
                 }
               }}
             >

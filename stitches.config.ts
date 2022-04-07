@@ -23,6 +23,7 @@ export const {
       vibrantColor: "#7161EF",
       darkerVibrantColor: "#3820E9",
       inputBackgroundColor: "#FFFFFF",
+      overlayBackgroundColor: "#00000040",
     },
 
     fontSizes: {
@@ -31,6 +32,10 @@ export const {
       fs16: "16px",
       fs15: "15px",
       fs14: "14px",
+    },
+
+    shadows: {
+      shadowColor: "#6C757D",
     },
   },
   media: {
@@ -73,5 +78,10 @@ export const darkModeTheme = createTheme("darkModeTheme", {
     vibrantColor: "#7161EF",
     darkerVibrantColor: "#3820E9",
     inputBackgroundColor: "#111111",
+    overlayBackgroundColor: "#00000080",
+  },
+
+  shadows: {
+    shadowColor: "#000000",
   },
 });

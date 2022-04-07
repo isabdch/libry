@@ -44,7 +44,7 @@ export const PopoverTrigger = styled(Popover.Trigger, {
 
 export const PopoverContent = styled(Popover.Content, {
   backgroundColor: "$inputBackgroundColor",
-  boxShadow: "0px 1px 5px #6C757D",
+  boxShadow: "0px 1px 5px $shadowColor",
   width: "200px",
   borderRadius: "0.5em",
   flexDirection: "column",

@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 export const allReducers = combineReducers({
   checkOpt: checkOptionReducer,
   isUserSignedIn: isSignedInReducer,
+  switch: switchDarkMode,
 });
 
 function isSignedInReducer(
@@ -33,6 +34,20 @@ function checkOptionReducer(
       return (state = "readOpt");
     case "NONE":
       return (state = "any");
+    default:
+      return state;
+  }
+}
+
+function switchDarkMode(
+  state: null | boolean = null,
+  action: { type: string }
+) {
+  switch (action.type) {
+    case "NOT_CHECKED":
+      return (state = false);
+    case "CHECKED":
+      return (state = true);
     default:
       return state;
   }

@@ -132,7 +132,7 @@ export const SwitchRoot = styled(Switch.Root, {
   cursor: "pointer",
 
   '&[data-state="checked"]': {
-    backgroundColor: "$mediumDarkColor",
+    backgroundColor: "$mediumColor",
   },
 
   "@min1440px": {
@@ -153,6 +153,7 @@ export const StyledSwitchThumb = styled(Switch.Thumb, {
 
   '&[data-state="checked"]': {
     transform: "translateX(calc(100% - 2px))",
+    backgroundColor: "$darkerVibrantColor",
   },
 
   "@min1440px": {
