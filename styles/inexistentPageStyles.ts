@@ -12,11 +12,11 @@ export const Container = styled("div", {
 
     a: {
       fontSize: "1.4em",
-      color: "$darkColor",
+      color: "$vibrantColor",
       transition: ".2s",
 
       "&:hover": {
-        color: "$darkerColor",
+        filter: "brightness(1.3)",
       },
     },
   },

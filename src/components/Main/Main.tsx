@@ -50,6 +50,7 @@ export function Main({
               src="/images/image.svg"
               alt="book illustration"
               layout="fill"
+              priority
             />
           </div>
         </section>

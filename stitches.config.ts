@@ -13,13 +13,13 @@ export const {
   theme: {
     colors: {
       white500: "#FFFFFF",
-      lighterColor: "#ECFEE8", // lilac50
-      headerColor: "#CED4DA", // lilac65
-      mediumColor: "#ADB5BD", // lilac80
-      mediumDarkColor: "#6C757D", // lilac100
-      darkColor: "#495057", // purple100
-      moreDarkColor: "#343A40", // purple200
-      darkerColor: "#242F40", // purple500
+      lighterColor: "#ECFEE8",
+      headerColor: "#CED4DA",
+      mediumColor: "#ADB5BD",
+      mediumDarkColor: "#6C757D",
+      darkColor: "#495057",
+      moreDarkColor: "#343A40",
+      darkerColor: "#242F40",
       vibrantColor: "#7161EF",
       darkerVibrantColor: "#3820E9",
     },

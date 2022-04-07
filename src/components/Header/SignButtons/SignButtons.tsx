@@ -94,8 +94,8 @@ export function SignButtons() {
           <ImpulseSpinner
             size={2}
             sizeUnit="em"
-            frontColor="#9D4EDD"
-            backColor="#E3BFFF"
+            frontColor="#3820E9"
+            backColor="#ECFEE8"
           />
         </span>
       ) : (

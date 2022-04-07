@@ -16,7 +16,7 @@ export const SignInButtonComponent = styled("button", {
   height: "45px",
   padding: "10px",
   borderRadius: "9999px",
-  backgroundColor: "$mediumColor",
+  backgroundColor: "$vibrantColor",
   color: "$white500",
   flexCenterJC: "space-around",
   gap: "10px",
