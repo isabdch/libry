@@ -15,7 +15,6 @@
     "@stitches/react": "^1.2.7",
     "axios": "^0.26.1",
     "firebase": "^9.6.10",
-    "firebase-tools": "^10.6.0",
     "next": "12.1.0",
     "next-themes": "^0.1.1",
     "react": "17.0.2",
