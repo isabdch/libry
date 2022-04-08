@@ -28,7 +28,7 @@ export function BooksSection({ books }: BooksState) {
                     <Image
                       src={
                         book.volumeInfo.imageLinks === undefined
-                          ? "/images/cover.png"
+                          ? "/images/book-cover.png"
                           : `${book.volumeInfo.imageLinks.thumbnail}`
                       }
                       alt={book.volumeInfo.title}
@@ -66,7 +66,7 @@ export function BooksSection({ books }: BooksState) {
                         <Image
                           src={
                             book.volumeInfo.imageLinks === undefined
-                              ? "/images/cover.png"
+                              ? "/images/book-cover.png"
                               : `${book.volumeInfo.imageLinks.thumbnail}`
                           }
                           alt={book.volumeInfo.title}

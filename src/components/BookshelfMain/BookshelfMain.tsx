@@ -94,7 +94,7 @@ export function BookshelfMain() {
       try {
         deleteDoc(document.ref).then(() =>
           toast.info(
-            `${document.data().title} was removed from your bookshelf.`,
+            `${document.data().title} removed from your bookshelf.`,
             {
               theme: "colored",
             }
@@ -170,7 +170,7 @@ export function BookshelfMain() {
                     <Image
                       src={
                         book.volumeInfo.imageLinks === undefined
-                          ? "/images/cover.png"
+                          ? "/images/book-cover.png"
                           : `${book.volumeInfo.imageLinks.thumbnail}`
                       }
                       alt={book.volumeInfo.title}
@@ -221,7 +221,7 @@ export function BookshelfMain() {
                         <Image
                           src={
                             book.volumeInfo.imageLinks === undefined
-                              ? "/images/cover.png"
+                              ? "/images/book-cover.png"
                               : `${book.volumeInfo.imageLinks.thumbnail}`
                           }
                           alt={book.volumeInfo.title}
