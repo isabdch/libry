@@ -83,8 +83,8 @@ export const globalStyles = globalCss({
 
   ".Toastify__toast": {
     width: "100%",
-    backgroundColor: "$vibrantColor",
-    color: "$darkerColor",
+    backgroundColor: "$white500",
+    color: "$vibrantColor",
     padding: "10px 20px",
     flexCenterJC: "center",
     cursor: "pointer",

@@ -139,7 +139,10 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
       });
     } catch {
       toast.error(
-        `Something went wrong. It was not possible to add ${volumeInfo.title} to your bookshelf.`
+        `Something went wrong. It was not possible to add ${volumeInfo.title} to your bookshelf.`,
+        {
+          theme: "colored",
+        }
       );
     }
   }
