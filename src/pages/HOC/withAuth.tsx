@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useRef } from "react";
 import { useUpdate } from "react-use";
 
-export function withAuth(WrappedComponent: React.ComponentType<{}>) {
+export default function withAuth(WrappedComponent: React.ComponentType<{}>) {
   // eslint-disable-next-line react/display-name
   return (props: {}) => {
     // checks whether we are on client / browser or server.
