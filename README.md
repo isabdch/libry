@@ -9,7 +9,10 @@
 
 ## [SITE HERE](https://libry.vercel.app/)
 
-![]()
+![](/github/gif-readme-1.gif)
+
+---
+<br />
 
 ## 📖 Table of Contents
 
@@ -67,7 +70,7 @@ This project is finished.
 
 ## 💡 Inspiration
 
-I enjoy reading and got inspiration from [Goodreads](https://www.goodreads.com/) and [Skoob](https://www.skoob.com.br/) - which are very useful apps for those who like to organize their readings - to create this project from scratch, and practice my skills with React, Redux, CSS in JS and Axios.
+I enjoy reading and got inspiration from [Goodreads](https://www.goodreads.com/) and [Skoob](https://www.skoob.com.br/) - which are very useful apps for those who like to organize their readings - to create this project from scratch, and practice my skills with React, Redux, CSS in JS and Axios. 
 
 ---
 
