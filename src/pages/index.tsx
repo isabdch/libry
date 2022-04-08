@@ -4,6 +4,7 @@ import { BooksSection } from "../components/BooksSection/BooksSection";
 import { Main } from "../components/Main/Main";
 import { api } from "../services/api";
 import { Book } from "../store/types";
+import { getCssText } from "../../stitches.config";
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -27,6 +28,10 @@ export default function Home() {
     <>
       <Head>
         <title>Libry</title>
+        <style
+          id="stitches"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        />
       </Head>
       <Main
         searchBooks={(event) => searchBooks(event)}

@@ -85,5 +85,3 @@ export const darkModeTheme = createTheme("darkModeTheme", {
     shadowColor: "#000000",
   },
 });
-
-getCssText();
