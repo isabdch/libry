@@ -146,7 +146,7 @@ export const ModalContent = styled(AlertDialog.Content, {
   height: "40vh",
   maxWidth: "450px",
   maxHeight: "85vh",
-  backgroundColor: "white",
+  backgroundColor: "$inputBackgroundColor",
   borderRadius: "1em",
   padding: "25px",
   zIndex: 2,
