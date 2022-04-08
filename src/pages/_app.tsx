@@ -5,10 +5,9 @@ import { allReducers } from "../store/reducer";
 import { Header } from "../components/Header/Header";
 import { globalStyles } from "../../styles/globalStyles";
 import { GoUpArrow } from "../components/GoUpArrow/GoUpArrow";
-import { ToastContainer } from "react-toastify";
 import { darkModeTheme } from "../../stitches.config";
 import { ThemeProvider } from "next-themes";
-import "react-toastify/dist/ReactToastify.css";
+import { Toast } from "../components/Toast/Toast";
 
 function MyApp({ Component, pageProps: { ...pageProps } }) {
   globalStyles();
@@ -27,18 +26,7 @@ function MyApp({ Component, pageProps: { ...pageProps } }) {
       >
         <Header />
 
-        <ToastContainer
-          position="top-left"
-          autoClose={2500}
-          hideProgressBar
-          newestOnTop={true}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable
-          pauseOnHover
-          limit={3}
-        />
+        <Toast />
 
         <GoUpArrow />
 

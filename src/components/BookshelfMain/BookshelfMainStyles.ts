@@ -82,6 +82,11 @@ export const BookCard = styled(AlertDialog.Trigger, {
     color: "$darkerColor",
     fontSize: "1.3em",
     marginBottom: "auto",
+    transition: ".2s",
+
+    "&:hover": {
+      color: "$vibrantColor",
+    },
   },
 
   ".btns": {
@@ -238,6 +243,19 @@ export const BookModalContent = styled(AlertDialog.Content, {
 });
 
 export const BookModalTitle = styled(AlertDialog.Title, {
+  a: {
+    transition: ".2s",
+
+    "&:hover": {
+      color: "$vibrantColor",
+    },
+
+    h1: {
+      fontSize: "1.3em",
+      marginBottom: "auto",
+    },
+  },
+
   "@max650px": {
     textAlign: "center",
   },

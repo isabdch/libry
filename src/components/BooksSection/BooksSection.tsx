@@ -14,6 +14,7 @@ import {
 } from "./BooksSectionStyles";
 import { BsXLg } from "react-icons/bs";
 import { BookPopover } from "../BookPopover/BookPopover";
+import Link from "next/link";
 
 export function BooksSection({ books }: BooksState) {
   return (
@@ -36,13 +37,27 @@ export function BooksSection({ books }: BooksState) {
                       priority
                     />
                   </div>
-                  <h1>
-                    {book.volumeInfo.title.split(" ").filter((n) => n != "")
-                      .length > 5
-                      ? book.volumeInfo.title.split(" ").slice(0, 4).join(" ") +
-                        "..."
-                      : book.volumeInfo.title}
-                  </h1>
+                  <Link
+                    href={`https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                      " ",
+                      "+"
+                    )}+${book.volumeInfo.authors[0].replaceAll(
+                      " ",
+                      "+"
+                    )}&tbm=shop`}
+                  >
+                    <a target="_blank">
+                      <h1>
+                        {book.volumeInfo.title.split(" ").filter((n) => n != "")
+                          .length > 5
+                          ? book.volumeInfo.title
+                              .split(" ")
+                              .slice(0, 4)
+                              .join(" ") + "..."
+                          : book.volumeInfo.title}
+                      </h1>
+                    </a>
+                  </Link>
                   <span
                     className="addBtn"
                     onClick={(event) => {
@@ -95,7 +110,19 @@ export function BooksSection({ books }: BooksState) {
                       </div>
                     </div>
                     <div className="content">
-                      <BookModalTitle>{book.volumeInfo.title}</BookModalTitle>
+                      <BookModalTitle>
+                        <Link
+                          href={`https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                            " ",
+                            "+"
+                          )}+${book.volumeInfo.authors[0].replaceAll(
+                            " ",
+                            "+"
+                          )}&tbm=shop`}
+                        >
+                          <a target="_blank">{book.volumeInfo.title}</a>
+                        </Link>
+                      </BookModalTitle>
                       <BookModalDescription>
                         {book.volumeInfo.description
                           ? book.volumeInfo.description

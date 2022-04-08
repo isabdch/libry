@@ -133,16 +133,11 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
         },
         { merge: true }
       ).then(() => {
-        toast.success(`${volumeInfo.title} added to your bookshelf.`, {
-          theme: "colored",
-        });
+        toast.success(`${volumeInfo.title} added to your bookshelf.`);
       });
     } catch {
       toast.error(
-        `Something went wrong. It was not possible to add ${volumeInfo.title} to your bookshelf.`,
-        {
-          theme: "colored",
-        }
+        `Something went wrong. It was not possible to add ${volumeInfo.title} to your bookshelf.`
       );
     }
   }
@@ -164,10 +159,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 );
               } else {
                 toast.info(
-                  "You're not allowed to do this. Sign in to continue.",
-                  {
-                    theme: "colored",
-                  }
+                  "You're not allowed to do this. Sign in to continue."
                 );
               }
             }}
@@ -185,10 +177,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 );
               } else {
                 toast.info(
-                  "You're not allowed to do this. Sign in to continue.",
-                  {
-                    theme: "colored",
-                  }
+                  "You're not allowed to do this. Sign in to continue."
                 );
               }
             }}
@@ -206,10 +195,7 @@ export function BookPopover({ id, volumeInfo, trigger }: BookPopoverProps) {
                 );
               } else {
                 toast.info(
-                  "You're not allowed to do this. Sign in to continue.",
-                  {
-                    theme: "colored",
-                  }
+                  "You're not allowed to do this. Sign in to continue."
                 );
               }
             }}

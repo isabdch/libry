@@ -93,12 +93,9 @@ export function BookshelfMain() {
     querySnapshot.forEach((document) => {
       try {
         deleteDoc(document.ref).then(() =>
-          toast.info(
-            `${document.data().title} removed from your bookshelf.`,
-            {
-              theme: "colored",
-            }
-          )
+          toast.info(`${document.data().title} removed from your bookshelf.`, {
+            theme: "colored",
+          })
         );
       } catch {
         toast.error(
@@ -178,13 +175,27 @@ export function BookshelfMain() {
                       priority
                     />
                   </div>
-                  <h1>
-                    {book.volumeInfo.title.split(" ").filter((n) => n != "")
-                      .length > 5
-                      ? book.volumeInfo.title.split(" ").slice(0, 4).join(" ") +
-                        "..."
-                      : book.volumeInfo.title}
-                  </h1>
+                  <Link
+                    href={`https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                      " ",
+                      "+"
+                    )}+${book.volumeInfo.authors[0].replaceAll(
+                      " ",
+                      "+"
+                    )}&tbm=shop`}
+                  >
+                    <a target="_blank">
+                      <h1>
+                        {book.volumeInfo.title.split(" ").filter((n) => n != "")
+                          .length > 5
+                          ? book.volumeInfo.title
+                              .split(" ")
+                              .slice(0, 4)
+                              .join(" ") + "..."
+                          : book.volumeInfo.title}
+                      </h1>
+                    </a>
+                  </Link>
                   <div className="btns">
                     <span
                       className="trashBtn"
@@ -250,7 +261,19 @@ export function BookshelfMain() {
                       </div>
                     </div>
                     <div className="content">
-                      <BookModalTitle>{book.volumeInfo.title}</BookModalTitle>
+                      <BookModalTitle>
+                        <Link
+                          href={`https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                            " ",
+                            "+"
+                          )}+${book.volumeInfo.authors[0].replaceAll(
+                            " ",
+                            "+"
+                          )}&tbm=shop`}
+                        >
+                          <a target="_blank">{book.volumeInfo.title}</a>
+                        </Link>
+                      </BookModalTitle>
                       <BookModalDescription>
                         {book.volumeInfo.description
                           ? book.volumeInfo.description
