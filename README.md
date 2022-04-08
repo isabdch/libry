@@ -12,7 +12,6 @@
 ![](/github/gif-readme-1.gif)
 
 ---
-<br />
 
 ## 📖 Table of Contents
 
