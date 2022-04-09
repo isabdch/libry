@@ -69,7 +69,7 @@ This project is finished.
 
 ## 💡 Inspiration
 
-I enjoy reading and got inspiration from [Goodreads](https://www.goodreads.com/) and [Skoob](https://www.skoob.com.br/) - which are very useful apps for those who like to organize their readings - to create this project from scratch, and practice my skills with React, Redux, CSS in JS and Axios. Also, I made this project pretty responsive.
+I enjoy reading and got inspiration from [Goodreads](https://www.goodreads.com/) and [Skoob](https://www.skoob.com.br/) - which are very useful apps for those who like to organize their readings - to create this project from scratch, and practice my skills with React, Redux, CSS in JS (also responsiveness) and Axios.
 
 ---
 
