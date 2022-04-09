@@ -38,13 +38,20 @@ export function BooksSection({ books }: BooksState) {
                     />
                   </div>
                   <Link
-                    href={`https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
-                      " ",
-                      "+"
-                    )}+${book.volumeInfo.authors[0].replaceAll(
-                      " ",
-                      "+"
-                    )}&tbm=shop`}
+                    href={
+                      book.volumeInfo.authors[0] != undefined
+                        ? `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                            " ",
+                            "+"
+                          )}+${book.volumeInfo.authors[0].replaceAll(
+                            " ",
+                            "+"
+                          )}&tbm=shop`
+                        : `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                            " ",
+                            "+"
+                          )}+book&tbm=shop`
+                    }
                   >
                     <a target="_blank">
                       <h1>
@@ -112,13 +119,20 @@ export function BooksSection({ books }: BooksState) {
                     <div className="content">
                       <BookModalTitle>
                         <Link
-                          href={`https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
-                            " ",
-                            "+"
-                          )}+${book.volumeInfo.authors[0].replaceAll(
-                            " ",
-                            "+"
-                          )}&tbm=shop`}
+                          href={
+                            book.volumeInfo.authors[0] != undefined
+                              ? `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                                  " ",
+                                  "+"
+                                )}+${book.volumeInfo.authors[0].replaceAll(
+                                  " ",
+                                  "+"
+                                )}&tbm=shop`
+                              : `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
+                                  " ",
+                                  "+"
+                                )}+book&tbm=shop`
+                          }
                         >
                           <a target="_blank">{book.volumeInfo.title}</a>
                         </Link>
