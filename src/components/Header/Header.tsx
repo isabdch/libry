@@ -13,7 +13,7 @@ import { BsList } from "react-icons/bs";
 export function Header() {
   const [menu, setMenu] = useState<boolean>(false);
 
-  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLButtonElement>(null);
 
   const dispatch = useDispatch<Dispatch<Action>>();
 
@@ -39,6 +39,20 @@ export function Header() {
     }
   }, [dispatch]);
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenu(false);
+        localStorage.setItem("isMenuOpen", JSON.stringify(false));
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
+
   function handleIsMenuOpen() {
     if (menu == true) {
       setMenu(false);
@@ -58,7 +72,7 @@ export function Header() {
   }
 
   return (
-    <HeaderComponent className={menu == true ? "" : "hideMenu"}>
+    <HeaderComponent ref={menuRef} className={menu == true ? "" : "hideMenu"}>
       <div className={menu == true ? "container" : "container hideMenuNav"}>
         <div className="content">
           <Link href="/" passHref>
@@ -95,7 +109,7 @@ export function Header() {
           <SignButtons />
         </span>
       </div>
-      <button ref={menuBtnRef} onClick={handleIsMenuOpen} className="menuBtn">
+      <button onClick={handleIsMenuOpen} className="menuBtn">
         <BsList />
       </button>
     </HeaderComponent>

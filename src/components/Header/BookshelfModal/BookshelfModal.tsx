@@ -31,16 +31,15 @@ export function BookshelfModal({ setMenu }: BookshelfModalProps) {
       setBookshelfModal(true);
     } else {
       setMenu(false);
+      localStorage.setItem("isMenuOpen", JSON.stringify(false));
     }
   }
 
   return (
     <AlertDialog.Root open={bookshelfModal}>
-      <ModalTrigger>
+      <ModalTrigger onClick={handleIsBookshelfModalOpen}>
         <Link href={isSignedIn ? "/mybookshelf" : "/"}>
-          <a onClick={handleIsBookshelfModalOpen} className="myShelf">
-            My bookshelf
-          </a>
+          <a className="myShelf">My bookshelf</a>
         </Link>
       </ModalTrigger>
       <AlertDialog.Portal>
