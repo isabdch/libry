@@ -177,7 +177,7 @@ export function BookshelfMain() {
                   </div>
                   <Link
                     href={
-                      book.volumeInfo.authors[0] != undefined
+                      book.volumeInfo.authors != undefined
                         ? `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
                             " ",
                             "+"
@@ -271,7 +271,7 @@ export function BookshelfMain() {
                       <BookModalTitle>
                         <Link
                           href={
-                            book.volumeInfo.authors[0] != undefined
+                            book.volumeInfo.authors != undefined
                               ? `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
                                   " ",
                                   "+"

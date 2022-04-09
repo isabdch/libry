@@ -39,7 +39,7 @@ export function BooksSection({ books }: BooksState) {
                   </div>
                   <Link
                     href={
-                      book.volumeInfo.authors[0] != undefined
+                      book.volumeInfo.authors != undefined
                         ? `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
                             " ",
                             "+"
@@ -120,7 +120,7 @@ export function BooksSection({ books }: BooksState) {
                       <BookModalTitle>
                         <Link
                           href={
-                            book.volumeInfo.authors[0] != undefined
+                            book.volumeInfo.authors != undefined
                               ? `https://www.google.com/search?q=${book.volumeInfo.title.replaceAll(
                                   " ",
                                   "+"
