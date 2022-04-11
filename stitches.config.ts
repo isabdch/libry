@@ -36,7 +36,6 @@ export const {
 
     shadows: {
       shadowColor: "#6C757D",
-      inputShadowColor: "#ADB5BD",
     },
   },
   media: {
@@ -84,6 +83,5 @@ export const darkModeTheme = createTheme("darkModeTheme", {
 
   shadows: {
     shadowColor: "#000000",
-    inputShadowColor: "#495057",
   },
 });

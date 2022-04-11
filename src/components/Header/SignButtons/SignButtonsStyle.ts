@@ -38,6 +38,7 @@ export const SignInButtonComponent = styled("button", {
 
   "@min1440px": {
     fontSize: "1.3vw",
+    height: "50%",
   },
 
   "@max1250px": {
@@ -96,6 +97,7 @@ export const ModalTrigger = styled(AlertDialog.Trigger, {
 
   "@min1440px": {
     fontSize: "1.3vw",
+    height: "50%",
 
     ".signOutIcon": {
       fontSize: "0.7em",
