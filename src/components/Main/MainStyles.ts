@@ -30,7 +30,7 @@ export const MainComponent = styled("main", {
       borderRadius: "2em 2em 2em 2em",
 
       "&:focus-within": {
-        outline: "1px solid $mediumColor",
+        boxShadow: "0 0 0 1px $inputShadowColor",
       },
 
       input: {
