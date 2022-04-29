@@ -33,8 +33,6 @@ Libry is an application that allows the user to search for books and see its inf
 
 - ### TypeScript;
 
-- ### React;
-
 - ### NextJS;
 
 - ### Redux;
