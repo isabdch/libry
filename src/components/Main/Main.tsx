@@ -17,11 +17,18 @@ export function Main({
   setInputValue,
   books,
 }: MainProps) {
-  const scrollSpan = useRef(null);
+  const scrollSpan = useRef<HTMLSpanElement>(null);
+  const inputElement = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     scrollSpan.current.scrollIntoView({ behavior: "smooth" });
   }, [books]);
+
+  useEffect(() => {
+    if (inputElement.current) {
+      inputElement.current.focus();
+    }
+  }, []);
 
   return (
     <>
@@ -35,6 +42,8 @@ export function Main({
           </p>
           <form>
             <input
+              ref={inputElement}
+              autoFocus
               type="text"
               placeholder="Search for books..."
               className="searchBooksInput"

@@ -70,7 +70,7 @@ export const darkModeTheme = createTheme("darkModeTheme", {
   colors: {
     white500: "#FFFFFF",
     lighterColor: "#232323",
-    headerColor: "#111111",
+    headerColor: "#1A1A1A",
     mediumColor: "#495057",
     mediumDarkColor: "#6C757D",
     darkColor: "#ADB5BD",
@@ -78,7 +78,7 @@ export const darkModeTheme = createTheme("darkModeTheme", {
     darkerColor: "#CED4DA",
     vibrantColor: "#7161EF",
     darkerVibrantColor: "#3820E9",
-    inputBackgroundColor: "#111111",
+    inputBackgroundColor: "#1A1A1A",
     overlayBackgroundColor: "#00000080",
   },
 
