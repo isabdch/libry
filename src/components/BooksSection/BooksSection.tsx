@@ -27,6 +27,7 @@ export function BooksSection({ books }: BooksState) {
                 <BookCard>
                   <div className="img">
                     <Image
+                      unoptimized={true}
                       src={
                         book.volumeInfo.imageLinks === undefined
                           ? "/images/book-cover.png"
@@ -86,6 +87,7 @@ export function BooksSection({ books }: BooksState) {
                     <div className="info">
                       <div className="img">
                         <Image
+                          unoptimized={true}
                           src={
                             book.volumeInfo.imageLinks === undefined
                               ? "/images/book-cover.png"

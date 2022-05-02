@@ -56,6 +56,7 @@ export function Main({
           </form>
           <div className="img">
             <Image
+              unoptimized={true}
               src="/images/image.svg"
               alt="book illustration"
               layout="fill"

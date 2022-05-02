@@ -165,6 +165,7 @@ export function BookshelfMain() {
                 <BookCard>
                   <div className="img">
                     <Image
+                      unoptimized={true}
                       src={
                         book.volumeInfo.imageLinks === undefined
                           ? "/images/book-cover.png"
@@ -237,6 +238,7 @@ export function BookshelfMain() {
                     <div className="info">
                       <div className="img">
                         <Image
+                          unoptimized={true}
                           src={
                             book.volumeInfo.imageLinks === undefined
                               ? "/images/book-cover.png"
