@@ -54,7 +54,7 @@ Libry is an application that allows the user to search for books and see its inf
 The user can:
 - Search for books;
 - See books informations;
-- If signed in, add/remove a book to their bookshelves: "To Read", "Reading" or "Read";
+- If signed in, add/remove a book from their bookshelves: "To Read", "Reading" or "Read";
 - Switch theme (dark mode or light mode).
 
 <br />
